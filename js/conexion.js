@@ -8,14 +8,18 @@ $(document).ready(function () {
         } else {
             $("#prebusqueda").hide();
             if ($("#buscar-nombre").val() == "") {
+                console.log($("#buscar-marca").val());
                 var parametros = {
                     "marca": $('#buscar-marca').val()
                 }
             } else if ($("#buscar-marca").val() == "") {
+                console.log($("#buscar-nombre").val());
                 var parametros = {
                     "nombre": $('#buscar-nombre').val()
                 }
             } else {
+                console.log($("#buscar-nombre").val());
+                console.log($("#buscar-marca").val());
                 var parametros = {
                     "nombre": $('#buscar-nombre').val(),
                     "marca": $('#buscar-marca').val()
@@ -26,6 +30,7 @@ $(document).ready(function () {
                 url: this.action,
                 type: this.method,
                 success: function (response) {
+                    console.log(response);
                     $("#listado").html(response);
                 },
                 failure: function (response) {

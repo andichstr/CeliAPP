@@ -8,7 +8,7 @@ require_once('conexion.php');
   define("password", "celiappg12016");
  */
 define("database", "celiapp");
-define("host", "localhost:3306");
+define("host", "localhost");
 define("user", "root");
 define("password", "");
 define("lista_ubicacion", "procuto_precio");

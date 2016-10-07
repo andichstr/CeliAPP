@@ -77,7 +77,7 @@ $(function() {
 
 
 
-  	$(document).on('click', '#login', function(e) {
+  	$(document).on('submit', '#login', function(e) {
   		e.preventDefault();
 
   		facebookLogin();
