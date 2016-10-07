@@ -1,0 +1,28 @@
+body
+{background: #ffffff;
+padding: 0px;}
+
+h1
+ {color:cadetblue;}
+
+header{background: #d5d5d5;            
+	   min-height: 60px;}
+
+
+footer
+ {background: #d5d5d5;
+ 	color: #fff;
+ 	min-height:100px;
+    
+}
+
+
+.reseteo-borde-migas-de-pan
+ 	{border-radius: 0px 0px 10px 10px;}
+
+.reseteo-menu
+    {min-width: 100px;}
+
+.separador {
+	padding: 60px;
+}
