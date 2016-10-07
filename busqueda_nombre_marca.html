@@ -63,7 +63,7 @@
                                     <li class="reseteo-menu"><a href="acercade.html"><span class="glyphicon glyphicon-bookmark"></span> Acerca de</a></li>		 			
 			 	</ul>		
                                 <!--2.2.3.4 - Formulario contenedor de boton de Login-->	
-                                <form class="navbar-form navbar-right">
+                                <form class="navbar-form navbar-right" action="busqueda.php">
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary reseteo-menu" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Login</button>  
                                     </div> 						 	
@@ -99,7 +99,7 @@
                 <div id="prebusqueda" style="display: none">
                     
                 </div>
-                <form id="buscar-form">
+                <form id="buscar-form" action="busqueda_nombre_marca.php" method="POST">
                     <div class="form-group col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <label id="nombre" class="sr-only">Nombre:</label>
                         <input type="text" class="form-control" id="buscar-nombre" placeholder="Nombre"/>
