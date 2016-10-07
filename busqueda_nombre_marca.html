@@ -18,6 +18,7 @@
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous">  </script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/database.js"></script>
+        <script src="js/conexion.js"></script>
     </head>
 <!-- #################################################-FIN DE HEAD-#################################################-->
 
@@ -91,27 +92,38 @@
                 </div>
             </div>
         </header>
-<!-- #################################################-FIN DEHEADER-#################################################-->
+<!-- #################################################-FIN DE HEADER-#################################################-->
         <div class="container">
             <br><br>
             <div class="row">
-		<div class="form-group col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                    <label id="nombre" class="sr-only">Nombre:</label>
-                    <input type="text" class="form-control" id="buscar-texto" placeholder="Buscar">
-		</div>		
-		<div class="form-group">
-		    <button type="submit" class="btn btn-primary" id="buscar">Buscar</button>
-                </div>		    
+                <div id="prebusqueda" style="display: none">
+                    
+                </div>
+                <form id="buscar-form">
+                    <div class="form-group col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <label id="nombre" class="sr-only">Nombre:</label>
+                        <input type="text" class="form-control" id="buscar-nombre" placeholder="Nombre"/>
+                    </div>
+                    <div class="form-group col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <label id="marca" class="sr-only">Marca:</label>
+                        <input type="text" class="form-control" id="buscar-marca" placeholder="Marca"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" id="buscar">Buscar</button>
+                    </div>
+                </form>
             </div>
         </div>   
         <br><br>
         <div class="container">     
             <table class="table table-striped table-hover table-bordered" id="tabla-busqueda">
                 <thead class="success">
-                    <td><b>RNPA</b></td>
-		    <td><b>Categoria</b></td>
-                    <td><b>Marca</b></td>
-                    <td><b>Descripcion</b></td>
+                    <tr>
+                        <td><b>RNPA</b></td>
+                        <td><b>Categoria</b></td>
+                        <td><b>Marca</b></td>
+                        <td><b>Descripcion</b></td>
+                    </tr>
 	    	</thead>
                 <tbody id="listado">
                 </tbody>
