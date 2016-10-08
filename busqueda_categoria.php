@@ -5,12 +5,11 @@ include_once 'configure.php';
 function validarFormulario() {
     if (isset($_REQUEST['categoria'])) {
         $categoria = $_REQUEST['categoria'];
-        echo '<script>console.log('.$categoria.')</script>';
-
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         if (isset($categoria)) {
-            $query = $con->prepare("SELECT RNPA, categoria, marca, descripcion FROM " . tabla_productos . " WHERE (categoria=':categoria')");
+            $query = $con->prepare("SELECT RNPA, categoria, marca, descripcion FROM " . tabla_productos . " WHERE (categoria=:categoria)");
+            $query->bindParam(':categoria', $categoria);
         }
         $query->execute();
         $result = $query->fetchAll();

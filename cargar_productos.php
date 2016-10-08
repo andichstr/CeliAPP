@@ -14,8 +14,8 @@ function cargarFormulario() {
         echo '<div class="form-group">';
         echo '<div class="row">';
         foreach ($result as $row) {
-            echo '<div class="col col-sm-1 col-lg-1">';
-            echo '<input type="submit" class="cat-boton" value="' . $row['categoria'] . '" id="' . $row['categoria'] . '"/>';
+            echo '<div class="col col-sm-2 col-lg-2">';
+            echo '<input type="button" class="cat-boton" value="' .$row['categoria']. '" onclick="enviarFormulario(\'' .$row['categoria']. '\')"/>';
             echo '</div>';
             if ($i == 12) {
                 echo '</div>';
@@ -31,7 +31,7 @@ function cargarFormulario() {
         echo '<div class="form-group">';
         echo '<div class="row">';
         echo '<div class="col col-sm-1 col-lg-1">';
-        echo '<input type="submit" class="cat-boton" value="' . $result['categoria'] . '" id="' . $result['categoria'] . '"/>';
+        echo '<input type="button" class="cat-boton" onclick="enviarFormulario(' .$result['categoria']. ')" value="' . $result['categoria'] . '" id="' . $result['categoria'] . '"/>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
@@ -39,8 +39,6 @@ function cargarFormulario() {
         echo 'No Data';
     }
     $con = null;
-}
-
-;
+};
 
 cargarFormulario();

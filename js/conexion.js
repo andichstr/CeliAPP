@@ -58,28 +58,26 @@ $(document).ready(function () {
             }
         });
     });
-
-    $(".cat-boton").on('click', function (event) {
-        event.stopPropagation();
-        event.preventDefault();
-        console.log(this.val());
-        var parametros = {
-            "categoria": this.val()
-        };
-        $.ajax({
-            data: parametros,
-            url: this.action,
-            type: this.method,
-            success: function (response) {
-                $("#listado").html(response);
-                $("#buscar-cat-form").hide();
-                $("#tabla-busqueda").show();
-            },
-            failure: function (response) {
-                $("#prebusqueda").addClass("bg-danger");
-                $("#prebusqueda").show();
-                $("#prebusqueda").html("Error en la busqueda, verifique su conexion e intente nuevamente.");
-            }
-        });
-    });
 });
+
+function enviarFormulario(categoria) {
+    var parametros = {
+        "categoria": categoria
+    };
+    $.ajax({
+        data: parametros,
+        url: 'busqueda_categoria.php',
+        type: 'POST',
+        success: function (response) {
+            console.log(response);
+            $("#listado").html(response);
+            $("#buscar-cat-form").hide();
+            $("#tabla-busqueda").show();
+        },
+        failure: function (response) {
+            $("#prebusqueda").addClass("bg-danger");
+            $("#prebusqueda").show();
+            $("#prebusqueda").html("Error en la busqueda, verifique su conexion e intente nuevamente.");
+        }
+    });
+};
