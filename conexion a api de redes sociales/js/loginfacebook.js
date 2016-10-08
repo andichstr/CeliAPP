@@ -89,9 +89,9 @@ los scopes estan en blanco porque los permisos definidos no tiene los mismo nomb
 
   	}
 
-/*Cuando se hace click en el control asignado a loguin llama a facebookLoguin()*/
+/*Cuando se hace click en el control asignado a login llama a facebookLogin()*/
 
-  	$(document).on('click', '#login', function(e) {
+  	$(document).on('submit', '#login', function(e) {
   		e.preventDefault();
 
   		facebookLogin();

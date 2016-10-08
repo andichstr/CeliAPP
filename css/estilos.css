@@ -26,3 +26,9 @@ footer
 .separador {
 	padding: 60px;
 }
+
+.cat-boton {
+    background: blue;
+    color: white;
+    font-weight: bold;
+}
