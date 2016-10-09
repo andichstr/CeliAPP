@@ -11,7 +11,7 @@ define("database", "celiapp");
 define("host", "localhost");
 define("user", "root");
 define("password", "");
-define("lista_ubicacion", "procuto_precio");
+define("lista_ubicacion", "producto_precio");
 define("tabla_productos", "producto");
 define("tabla_usuarios", "usuario");
 define("tabla_legales", "legales");
