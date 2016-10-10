@@ -2,9 +2,9 @@
 
 require_once('conexion.php');
 /*
-  define("database", "a1567687_celiapp");
-  define("host", "mysql5.000webhost.com");
-  define("user", "a1567687_admin");
+  define("database", "u602243947_celia");
+  define("host", "mysql.hostinger.com.ar");
+  define("user", "u602243947_root");
   define("password", "celiappg12016");
  */
 define("database", "celiapp");
