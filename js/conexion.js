@@ -30,7 +30,11 @@ $(document).ready(function () {
                 url: this.action,
                 type: this.method,
                 success: function (response) {
-                    $("#listado").html(response);
+                    if (response != '0'){
+                        $("#listado").html(response);
+                    }else{
+                        $("#listado").html('No se encontraron resultados con esos valores');
+                    }
                 },
                 failure: function (response) {
                     $("#prebusqueda").addClass("bg-danger");
@@ -80,4 +84,5 @@ function enviarFormulario(categoria) {
             $("#prebusqueda").html("Error en la busqueda, verifique su conexion e intente nuevamente.");
         }
     });
-};
+}
+;

@@ -35,16 +35,20 @@ function validarFormulario() {
             echo '<td>' . $row['descripcion'] . '</td>';
             echo '</tr>';
         }
+        echo '<input type="button" value="Volver" class="primary" onclick="volverNombreMarca();"/>';
     } else if (isset($result)) {
-        echo '<script>console.log("resultado")</script>';
-        echo '<tr>';
-        echo '<td>' . $result['RNPA'] . '</td>';
-        echo '<td>' . $result['categoria'] . '</td>';
-        echo '<td>' . $result['marca'] . '</td>';
-        echo '<td>' . $result['descripcion'] . '</td>';
-        echo '</tr>';
-    } else {
-        echo 'No Data';
+        if ($result != "") {
+            echo '<script>console.log("resultado")</script>';
+            echo '<tr>';
+            echo '<td>' . $result['RNPA'] . '</td>';
+            echo '<td>' . $result['categoria'] . '</td>';
+            echo '<td>' . $result['marca'] . '</td>';
+            echo '<td>' . $result['descripcion'] . '</td>';
+            echo '</tr>';
+            echo '<input type="button" value="Volver" class="primary" onclick="volverNombreMarca();"/>';
+        } else {
+            echo '0';
+        }
     }
     $con = null;
 }
