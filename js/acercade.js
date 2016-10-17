@@ -1,11 +1,11 @@
 function textoAcercaDe(){
-    $("#txtTitulo").html("�Que es CeliAPP?");
+    $("#txtTitulo").html("¿Que es CeliAPP?");
     $("#txtAcercaDe").html("Acerca de CeliAPP");
     $("#txtDesc").html("<p>CeliAPP nació en Argentina como una herramienta útil para la comunidad,  luego de conocer el día a día y la problemática que atraviesan nuestros allegados con celiaquía.</p><p>La dificultad de encontrar los productos de manera sencilla o la necesidad de  utilizar múltiples servicios para obtener los resultados esperados, hace que sea muy frustrante y tedioso para las personas con esta condición.</p><p>Es por eso que desde CeliAPP queremos ayudar a hacer esta tarea mucho más amena, aportando agilidad en la búsqueda, ofreciendo  orientación sobre los posibles lugares de compra y precios de referencia que los mismos usuarios pueden agregar asegurando un compromiso  para el resto de la comunidad.</p>");
 };
 
 function textoDesarrolladores(){
-    $("#txtTitulo").html("�Quienes desarrollamos CeliApp?");
+    $("#txtTitulo").html("¿Quienes desarrollamos CeliApp?");
     $("#txtAcercaDe").html("Acerca de Desarrolladores de CeliAPP");
     $("#txtDesc").html("<p>Schuster Andres Norberto</p><p>Medina Matias</p><p>Soria Maximiliano</p><p>Escudero Cristian</p><p>Venica Roman</p><p>Piriz Fernando</p>");
 };
