@@ -29,8 +29,8 @@ $(document).ready(function(){
                 var i = 0;
                 $("#modalTitle").html(texto[i].titulo);
                 for (i=0; i<texto.length-1; i++){
-                    console.log(texto[i].titulo);
-                    console.log(texto[i].descripcion);
+                    //console.log(texto[i].titulo);
+                    //console.log(texto[i].descripcion);
                     txt += "<p>";
                     txt += texto[i].descripcion;
                     txt += "</p>";

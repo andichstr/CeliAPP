@@ -8,7 +8,7 @@ $(document).ready(function () {
         } else {
             $("#prebusqueda").hide();
             if ($("#buscar-nombre").val() == "") {
-                console.log($("#buscar-marca").val());
+                //console.log($("#buscar-marca").val());
                 var parametros = {
                     "marca": $('#buscar-marca').val()
                 };
@@ -32,6 +32,9 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response != '0'){
                         $("#listado").html(response);
+                        $("#tabla-busqueda").show();
+                        $("#buscar-form").hide();
+                        $("#divVolver").html('<input type="button" value="Volver" onclick="volverBuscarNombreMarca();"/>');
                     }else{
                         $("#listado").html('No se encontraron resultados con esos valores');
                     }
@@ -49,7 +52,7 @@ $(document).ready(function () {
             url: 'cargar_productos.php',
             type: 'POST',
             success: function (response) {
-                console.log(response);
+                //console.log(response);
                 $("#buscar-cat-form").html(response);
                 $("#buscar-cat-form").show();
                 $("#prebusqueda").removeClass("bg-danger");
@@ -73,10 +76,11 @@ function enviarFormulario(categoria) {
         url: 'busqueda_categoria.php',
         type: 'POST',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
             $("#listado").html(response);
             $("#buscar-cat-form").hide();
             $("#tabla-busqueda").show();
+            $("#divVolver").html('<input type="button" value="Volver" onclick="volverBuscarCategoria();"/>');
         },
         failure: function (response) {
             $("#prebusqueda").addClass("bg-danger");
@@ -86,3 +90,15 @@ function enviarFormulario(categoria) {
     });
 }
 ;
+
+function volverBuscarNombreMarca(){
+    $("#tabla-busqueda").hide();
+    $("#buscar-form").show();
+    $("#divVolver > input").remove();
+};
+
+function volverBuscarCategoria(){
+    $("#tabla-busqueda").hide();
+    $("#buscar-cat-form").show();
+    $("#divVolver > input").remove();
+};
