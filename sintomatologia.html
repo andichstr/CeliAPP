@@ -22,16 +22,17 @@
                 <nav class="navbar navbar-default navbar-fixed-top formato-nabvar">
                     <div class="container-fluid">
                         <!--2.2 - Navbar Header-->	 		
-                        <div class="navbar-header">		 			
-                            <!--2.2.1 - Navbar boton de menu (vista movil)-->	
+                        <div class="navbar-header">
+                                <!--2.2.1 - Navbar boton de menu (vista movil)-->   
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
                                 <span class="sr-only">Menu</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
-                            </button>
-                            <!--2.2.2 - Navbar Brand-->			
-                            <a href="#" class="navbar-brand">IMG de Logo</a>
+                                </button>
+                                <!--2.2.2 - Navbar Brand-->         
+                                <!--<a href="#" class="navbar-brand">IMG de Logo</a>-->
+                                <img src="img/logo1.png" alt="logo">
                         </div>		 	
                         <!--2.2.3 - Navbar Menu (opciones)-->		
                         <div class="container" id="navbarcentrado">	
@@ -80,7 +81,7 @@
         <!-- Contenedor de texto con una clase main row, justificado con text-justify y compartido con una imagen de muestra. que se van a    moldando en base al sistema de columnas-->
         <div class="container">
             <section class="main row">
-                <article class="color2 col-xs-12 col-sm-7 col-md-9 col-lg-9">			
+                <article class="color2 col-xs-12 col-sm-7 col-md-12 col-lg-12">			
                     <br>
                     <!-- Migas de pan -->
                     <ol class="breadcrumb reseteo-de-migas-de-pan">				
@@ -109,16 +110,7 @@
                         - seguido de el tamaño va un numero, es el numero de columnas que puede adoptar, como maximo son 12 ( col-xs-12)
                         - se usa la class row para referenciar que los elementos dentro del div son una sola fila-->
                 </article>
-                <br>
-                <div class="container hidden-xs hidden-sm col-md-3 col-lg-3">
-                    <div class="list-group">
-                        <h5 class="list-group-item active ctive"><span class="glyphicon glyphicon-bookmark"></span> Páginas Utiles</h5>
-                        <a href="http://www.anmat.gov.ar/"  target="_blank" class="list-group-item list-group-item"><span class="glyphicon glyphicon-menu-right"></span> ANMAT</a>
-                        <a href="http://www.celiaco.org.ar/" target="_blank" class="list-group-item list-group-item"><span class="glyphicon glyphicon-menu-right"></span> Asociaci&oacute;n cel&iacute;aca argentina</a>
-                        <a href="http://www.msal.gob.ar/index.php/programas-y-planes/125-enfermedad-celiaca" target="_blank" class="list-group-item list-group-item"><span class="glyphicon glyphicon-menu-right"></span> Ministerio de salud</a>
-                        <a href="http://www.msal.gob.ar/celiacos/pdf/cuadernillo_de_orientacion_para_celiacos.pdf" target="_blank" class="list-group-item list-group-item"><span class="glyphicon glyphicon-menu-right"></span> Orientacion para celiacos</a>
-                    </div>
-                </div>
+                
             </section>
         </div>	
         <br>
@@ -126,32 +118,21 @@
         <br>
         <div class="separador"></div>
         <!-- 4.1 - Declaracion de navbarfooter-->		
-        <div class="footer navbar-fixed-bottom">	
-            <footer class="site-footer ">        
-                <!-- 4.1.1 - Centrado de contenido-->	
-                <div class="container">     
-                    <!-- 4.1.2 - Se define como una fila todo el contenido-->	
-                    <div class="row">
-                        <!-- 4.1.2.1 - Sub fila 1/3 - Imagen del logo UPE y link -->               
-                        <div class="col-xs-6 col-sm-6 col-md-4">
-                            <br> 
-                            <a href="http://upe.edu.ar" target="_blank"><img src="img/f01.png" alt="" class="img-responsive"></a>
+         <div class="footer navbar-fixed-bottom">    
+                <footer class="site-footer ">
+                    <!-- 4.1.1 - Centrado de contenido-->
+                        <div class="container ">     
+                            <!-- 4.1.2 - Se define como una fila todo el contenido-->
+                            <br>    
+
+                            <div class="row col-xs-12 col-sm-12 col-md-9 pull-right">
+                                <!-- 4.1.2.2 - Sub fila 2/3 - Logos y links de redes sociales -->  
+                                    
+                            </div>
                         </div>
-                        <!-- 4.1.2.2 - Sub fila 2/3 - Logos y links de redes sociales -->  
-                        <div class="col-xs-6 col-sm-6 col-md-4">
-                            <br>
-                            <a href="#" target="_blank"><img src="img/f.png" alt="" class="img-responsive"></a>
-                            <a href="#" target="_blank"><img src="img/t.png" alt="" class="img-responsive"></a>
-                            <a href="#" target="_blank"><img src="img/g+.png" alt="" class="img-responsive"></a>
-                        </div>
-                        <!-- 4.1.2.3 - Sub fila 1/3 - Imagen de la lista de integrantes-->  
-                        <div class="hidden-xs hidden-sm col-md-4">
-                            <br>
-                            <img src="img/f02.png" alt="" class="img-responsive">
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </body>
+<!-- #################################################-FIN DE FOOTER-#################################################-->
+                </footer>
+            </div>
+<!-- #################################################-FIN DE BODY#################################################-->
+    </body> 
 </html>
