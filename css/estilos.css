@@ -1,17 +1,19 @@
-body
-{background: #ffffff;
-padding: 0px;}
+body{
+	background: #F8C8D4 url("../img/fondo.png");
+	background-repeat: no-repeat;
+	padding: 0px;
+}
 
 h1
  {color:cadetblue;}
 
-header{background: #d5d5d5;            
+header{background: #98FD86;            
 	   min-height: 60px;}
 
 
 footer
  {background: #d5d5d5;
- 	color: #fff;
+ 	color: #212121;
  	min-height:100px;
     
 }
@@ -32,3 +34,21 @@ footer
     color: white;
     font-weight: bold;
 }
+#redes li{
+	list-style: none;
+	display: inline-block;
+	text-align: center;
+}
+footer{
+	text-align: center;	
+	background-color:transparent;  ;
+
+}
+nav.navbar{
+	background-color:#FFFFFF;
+	
+}
+.color2{
+	background: #FFFFFF;
+}
+
