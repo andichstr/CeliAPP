@@ -3185,8 +3185,8 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-rosa:hover {
   color: #fff;
-  background-color: #ee9c9e;
-  border-color: #ee9c9e;
+  background-color: #ed8c8f;
+  border-color: #ed8c8f;
 }
 .btn-rosa:active,
 .btn-rosa.active,
@@ -3205,7 +3205,7 @@ fieldset[disabled] .btn-primary.focus {
 .btn-rosa.active.focus,
 .open > .dropdown-toggle.btn-rosa.focus {
   color: #fff;
-  background-color: #ee9c9e;
+  background-color: #ed8c8f;
   border-color: #dc8e90;
 }
 .btn-rosa:active,
