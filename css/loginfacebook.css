@@ -1,0 +1,12 @@
+strong, img {
+	display: inline-block;
+}
+.img {
+	margin: 0 auto;
+	border-radius: 10px;
+    max-height: 35px;
+    max-width: 35px;
+}
+#logout {
+	margin-top: 10px;
+}
