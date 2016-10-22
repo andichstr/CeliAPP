@@ -8,7 +8,7 @@
     <meta name= "description" content="Es una pagina web que se dedica a la busqueda de alimentos aptos para celiacos">
     <!--1.2 -Declaracion de etiquetas LINK-->
     <link rel="shortcut icon" type="image/x-icon" href="img/celi.ico">  
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/loginfacebook.css">
     <!--1.3 -Declaracion de etiquetas LINK-->
@@ -20,8 +20,6 @@
     
     <!-- carga  script para la conexion segun la api de facebook.-->
 	<script>
-	
-
 	  (function(d, s, id) {
 	    var js, fjs = d.getElementsByTagName(s)[0];
 	    if (d.getElementById(id)) return;
@@ -39,7 +37,7 @@
         <header>
             <!--2.1 Barra de navegacion o Navbar-->
             <div class="container">
-                <nav class="navbar navbar-default navbar-fixed-top formato-nabvar">
+                <nav class="navbar navbar-default navbar-fixed-top formato-nabvar navcolor">
                     <div class="container-fluid">
                         <!--2.2 - Navbar Header-->          
                         <div class="navbar-header">
@@ -52,7 +50,7 @@
                                 </button>
                                 <!--2.2.2 - Navbar Brand-->         
                                 <!--<a href="#" class="navbar-brand">IMG de Logo</a>-->
-                                <img src="img/logo1.png" alt="logo">
+                                <img src="img/logo1.png" alt="logo" class="">
                         </div>          
                         <!--2.2.3 - Navbar Menu (opciones)-->       
                         <div class="container" id="navbarcentrado"> 
@@ -67,7 +65,7 @@
                                         </a>
                                         <!--se crea un dropdown menu para poder dar opciones de despliegue-->
                                         <ul class="dropdown-menu">                      
-                                            <li class="reseteo-menu"><a href="busqueda_nombre_marca.html">Busqueda de producto</a></li>
+                                            <li><a href="busqueda_nombre_marca.html">Busqueda de producto</a></li>
                                             <li class="reseteo-menu"><a href="#">Busqueda por categoria</a></li>    
                                         </ul>               
                                         </li>
@@ -78,7 +76,7 @@
                                     <!--2.2.3.4 - Formulario contenedor de boton de Login-->    
                                     <form class="navbar-form navbar-right">
                                         <div class="form-group">
-                                            <a href="#" id="login" class="btn btn-primary">Iniciar sesión</a>
+                                            <a href="#" id="login" class="btn btn-primary">Iniciar sesión</a>  
                                         </div>                          
                                     </form> 
                                 </nav>
@@ -86,7 +84,23 @@
                     </div>
                 </nav>
             </div>
-            
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
 <!-- #################################################-FIN DEHEADER-#################################################-->
     <!-- BLOQUE DE TEXTO PRINCIPAL
@@ -97,10 +111,10 @@
             - col-lg (cantidad de columnas que ocupara en tamaño largo)
             - seguido de el tamaño va un numero, es el numero de columnas que puede adoptar, como maximo son 12 ( col-xs-12)
             - se usa la class row para referenciar que los elementos dentro del div son una sola fila-->    
-            <br>
+      <br>     
     <div class="container mainrowpadding">
             <section class="main row">
-                <article class="col-xs-12 col-sm-12 col-md-9 col-lg-9 visible-inline">
+                <article class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                     <div id="carousel-1" class="carousel slide" dataride="carousel">
                         <!--Indicadores
                             -son los indicaodres de a donde apunta cada slide -->
@@ -144,50 +158,57 @@
                             <span class="sr-only">Siguiente</span>
                         </a>
                     </div>
-                    <!--Migas de pan-->
-                    <ol class="breadcrumb reseteo-de-migas-de-pan">             
-                        <li><span class="glyphicon glyphicon-home"></span> Inicio</li>              
-                    </ol>
-                            
+                                     
                        
                 </article>
-                <div class=" row col-xs-12 col-sm-12 col-md-3 col-lg-3 text-center">
-                <p class="bg-primary">
-
-                    <h3>Bienvenidos a CeliApp</h3>
-                    CeliAPP es nuestra manera de ayudar a los celíacos y a su entorno a facilitar el dilema del día a día de ¿Que puedo comer? A través de nuestra página ofrecemos una manera sencilla y cómoda de buscar los productos aptos para celíacos y obtener información sobre la enfermedad, para el entorno de quienes padecen ésta condición.
-                </p>
-                    
-                </div>
-                <aside>
-                <!--Espacio de publicidad-->
-                <div class="container-fluid col-xs-12 col-sm-12 col-md-4 col-lg-4 visible-inline">
-                    
-                    
-                    <img src="img/publicidad.png" class="img-responsive img-thumbnail " alt="Publicidad">
-                </div>
-                </aside>
-            </section>  
-                    
+                  <div class="container hidden-xs hidden-sm col-md-4 col-lg-4">
+                    <div class="list-group">
+                      <h5 class="list-group-item  colorrosa"><span class="glyphicon glyphicon-bookmark"></span> Páginas Utiles</h5>
+                      <a href="http://www.anmat.gov.ar/" class="list-group-item list-group-item"><span class="glyphicon glyphicon-menu-right"></span> ANMAT</a>
+                      <a href="http://www.celiaco.org.ar/" class="list-group-item list-group-item"><span class="glyphicon glyphicon-menu-right"></span> Asociaci&oacute;n cel&iacute;aca argentina</a>
+                      <a href="http://www.msal.gob.ar/index.php/programas-y-planes/125-enfermedad-celiaca" class="list-group-item list-group-item"><span class="glyphicon glyphicon-menu-right"></span> Ministerio de salud</a>
+                      <a href="http://www.msal.gob.ar/celiacos/pdf/cuadernillo_de_orientacion_para_celiacos.pdf" class="list-group-item list-group-item"><span class="glyphicon glyphicon-menu-right"></span> Orientacion para celiacos</a>
+                    </div>
             </div>
-            <br>
+                   
+                            
+                    
+                      </section>  
+               
+                <div> 
+                <br>   
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                   
+                <h1>Bienvenido a Celiapp</h1><br>
+                       <p class="text-justify">CeliAPP es nuestra manera de ayudar a los celíacos y a su entorno a facilitar el dilema del día a día respondiendo a la preguenta: <br><br><b><span class="glyphicon glyphicon-heart-empty"> </span> ¿Que puedo comer? </b><br><br>A través de nuestra página ofrecemos una manera sencilla y cómoda de buscar los productos aptos para celíacos y obtener información sobre la enfermedad, para el entorno de quienes padecen ésta condición.
+                        </p>
+                    
+                   </div>                  
+                     
+                        
+                        
+                </div> 
+                 <br>
+                     <br>
+                     <br>
+           
 <!-- ################################################- 04.FOOTER -#################################################-->      
            
-            <!-- 4.1 - Declaracion de navbarfooter-->       
+            <!-- 4.1 - Declaracion de navbarfooter-->  
+            <img src="img/publicidad.png" class="img-responsive" alt="">   
             <div class="footer navbar-fixed-bottom">    
                 <footer class="site-footer ">
                     <!-- 4.1.1 - Centrado de contenido-->
                         <div class="container ">     
                             <!-- 4.1.2 - Se define como una fila todo el contenido-->
-                            <br>    
+                            
 
-                            <div class="row col-xs-12 col-sm-12 col-md-9 pull-right">
+                            <div class="col-xs-12 col-sm-12 col-md-12 ">
+                                   <h5>    <b>Conoce mas en...</b></h5>
                                 <!-- 4.1.2.2 - Sub fila 2/3 - Logos y links de redes sociales -->  
-                                    <ul  id="redes" class="col-xs-12 col-sm-12 col-md-4 visible-inline pull-right">
-                                        <li><a href="https://www.facebook.com/Celiapp-1753527848219866/" target="_blank"><img src="img/Facebook.png" alt="" class="img-responsive"></a></li>
-                                        <li><a href="#" target="_blank"><img src="img/Twitter.png" alt="" class="img-responsive"></a></li>
-                                        <li><a href="#" target="_blank"><img src="img/GooglePlus.png" alt="" class="img-responsive"></a></li>
-                                    </ul>
+                                  <a href="#"><img src="img/Facebook.png" alt=""></a>
+                                  <a href="#"><img src="img/GooglePlus.png" alt=""></a>
+                                  <a href="#"><img src="img/Twitter.png" alt=""></a>
                             </div>
                         </div>
 <!-- #################################################-FIN DE FOOTER-#################################################-->
