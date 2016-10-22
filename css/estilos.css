@@ -1,26 +1,34 @@
-body{
-	background: #F8C8D4 url("../img/fondo.png");
-	background-repeat: no-repeat;
-	padding: 0px;
+body
+{background: #ffffff;
+padding: 0px;
 }
 
 h1
- {color:cadetblue;}
+ {color:#ee9c9e}
 
-header{background: #98FD86;            
+header{background: #ee9c9e;            
 	   min-height: 60px;}
 
 
 footer
- {background: #d5d5d5;
- 	color: #212121;
- 	min-height:100px;
-    
+ {background: #d10372;
+ 	color: #fff;
+     min-height: 100px;
+ 	padding: 0px;   
+     
 }
 
 
 .reseteo-borde-migas-de-pan
- 	{border-radius: 0px 0px 10px 10px;}
+ 	{border-radius: 0px 0px 10px 10px;
+    }
+.migascolor
+{background: #ee9c9e;}
+
+.migascolor:li {
+    color:#fff;
+	
+}
 
 .reseteo-menu
     {min-width: 100px;}
@@ -29,26 +37,22 @@ footer
 	padding: 60px;
 }
 
-.cat-boton {
-    background: blue;
-    color: white;
-    font-weight: bold;
-}
-#redes li{
-	list-style: none;
-	display: inline-block;
-	text-align: center;
-}
-footer{
-	text-align: center;	
-	background-color:transparent;  ;
+.navcolor
+{background: #d10372;}
 
+.navli
+{color: #fff;}
+
+
+.bienvenido
+ {background: #ee9c9e;
+color:#fff;
+border-radius: 10px 10px 10px 10px;
+padding: 25px;
+margin: 10px 0px 0px 0px;
 }
-nav.navbar{
-	background-color:#FFFFFF;
-	
-}
-.color2{
-	background: #FFFFFF;
-}
+
+.colorrosa
+{background: #d10372;
+ color: #fff;}
 
