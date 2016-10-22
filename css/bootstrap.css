@@ -3170,6 +3170,67 @@ fieldset[disabled] .btn-primary.focus {
   color: #337ab7;
   background-color: #fff;
 }
+
+/*CLASE DE BOTON ROSA*/
+.btn-rosa {
+  color: #fff;
+  background-color: #ee9c9e;
+  border-color: #ee9c9e;
+}
+.btn-rosa:focus,
+.btn-rosa.focus {
+  color: #fff;
+  background-color: #ee9c9e;
+  border-color: #dc8e90;
+}
+.btn-rosa:hover {
+  color: #fff;
+  background-color: #ee9c9e;
+  border-color: #ee9c9e;
+}
+.btn-rosa:active,
+.btn-rosa.active,
+.open > .dropdown-toggle.btn-rosa {
+  color: #fff;
+  background-color: #ee9c9e;
+  border-color: #ee9c9e;
+}
+.btn-rosa:active:hover,
+.btn-rosa.active:hover,
+.open > .dropdown-toggle.btn-rosa:hover,
+.btn-rosa:active:focus,
+.btn-rosa.active:focus,
+.open > .dropdown-toggle.btn-rosa:focus,
+.btn-rosa:active.focus,
+.btn-rosa.active.focus,
+.open > .dropdown-toggle.btn-rosa.focus {
+  color: #fff;
+  background-color: #ee9c9e;
+  border-color: #dc8e90;
+}
+.btn-rosa:active,
+.btn-rosa.active,
+.open > .dropdown-toggle.btn-rosa {
+  background-image: none;
+}
+.btn-rosa.disabled:hover,
+.btn-rosa[disabled]:hover,
+fieldset[disabled] .btn-rosa:hover,
+.btn-rosa.disabled:focus,
+.btn-rosa[disabled]:focus,
+fieldset[disabled] .btn-rosa:focus,
+.btn-rosa.disabled.focus,
+.btn-rosa[disabled].focus,
+fieldset[disabled] .btn-rosa.focus {
+  background-color: #ee9c9e;
+  border-color: #ee9c9e;
+}
+.btn-rosa .badge {
+  color: #ee9c9e;
+  background-color: #fff;
+}
+/*---------------------------*/
+
 .btn-success {
   color: #fff;
   background-color: #5cb85c;
@@ -4097,7 +4158,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #ee9c9e;
 }
 .nav-stacked > li {
   float: none;
