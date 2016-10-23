@@ -35,7 +35,6 @@ function validarFormulario() {
             echo '<td>' . $row['descripcion'] . '</td>';
             echo '</tr>';
         }
-        echo '<input type="button" value="Volver" class="primary" onclick="volverNombreMarca();"/>';
     } else if (isset($result)) {
         if ($result != "") {
             echo '<script>console.log("resultado")</script>';
@@ -45,7 +44,6 @@ function validarFormulario() {
             echo '<td>' . $result['marca'] . '</td>';
             echo '<td>' . $result['descripcion'] . '</td>';
             echo '</tr>';
-            echo '<input type="button" value="Volver" class="primary" onclick="volverNombreMarca();"/>';
         } else {
             echo '0';
         }

@@ -1,4 +1,4 @@
-
+﻿
 -- phpMyAdmin SQL Dump
 -- version 3.5.2.2
 -- http://www.phpmyadmin.net
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `legales` (
   `titulo` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `descripcion` varchar(9999) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id_legal`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `legales`
