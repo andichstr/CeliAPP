@@ -13,12 +13,12 @@ function validarFormulario() {
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     if (isset($nombre)) {
         if (isset($marca)) {
-            $query = $con->prepare("SELECT RNPA, categoria, marca, descripcion FROM " . tabla_productos . " WHERE (descripcion LIKE '%" . $nombre . "%' AND (marca='" . $marca . "'))");
+            $query = $con->prepare("SELECT RNPA, categoria, marca, descripcion FROM " . tabla_productos . " WHERE (UPPER(descripcion) LIKE UPPER('%" . $nombre . "%') AND (UPPER(marca) LIKE UPPER('%" . $marca . "%'))");
         } else {
-            $query = $con->prepare("SELECT RNPA, categoria, marca, descripcion FROM " . tabla_productos . " WHERE (descripcion LIKE '%" . $nombre . "%')");
+            $query = $con->prepare("SELECT RNPA, categoria, marca, descripcion FROM " . tabla_productos . " WHERE (UPPER(descripcion) LIKE UPPER('%" . $nombre . "%'))");
         }
     } else if (isset($marca)) {
-        $query = $con->prepare("SELECT RNPA, categoria, marca, descripcion FROM " . tabla_productos . " WHERE (marca='" . $marca . "')");
+        $query = $con->prepare("SELECT RNPA, categoria, marca, descripcion FROM " . tabla_productos . " WHERE (UPPER(marca) LIKE UPPER('%" . $marca . "%'))");
     } else {
         $descError = "No se admiten busquedas con parametros vacios.";
         echo $descError;
@@ -37,7 +37,6 @@ function validarFormulario() {
         }
     } else if (isset($result)) {
         if ($result != "") {
-            echo '<script>console.log("resultado")</script>';
             echo '<tr>';
             echo '<td>' . $result['RNPA'] . '</td>';
             echo '<td>' . $result['categoria'] . '</td>';
