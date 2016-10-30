@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Actualizar Base de Datos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/postanmat.js" type="text/javascript"></script>  -->
+    </head>
+    <body>
+        <div id="divForm">
+            <form method="post" action="postanmat.php" id="form1">
+                <div class="aspNetHidden">
+                    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE3ODMyNzEzNjMPZBYCAgMPZBYEAhMPEA8WAh4LXyFEYXRhQm91bmRnZBAVOQ5TZWxlY2Npb25hci4uLgdBY2VpdGVzLEFkaXRpdm9zIHkgbWF0ZXJpYXMgcHJpbWFzIHBhcmEgbGEgaW5kdXN0cmlhGUFndWFzIHkgYWd1YXMgZ2FzaWZpY2FkYXMJQWxmYWpvcmVzBUFsZ2FzJUFsaW1lbnRvcyBwYXJhIGxhY3RhbnRlcyAoMC0xMiBtZXNlcyk1QWxpbWVudG9zIHBhcmEgbmnDsW9zIGVuIHByaW1lcmEgaW5mYW5jaWEgKDEtMyBhw7FvcykwQWxpbWVudG9zIHBhcmEgcHJvcMOzc2l0b3MgbcOpZGljb3MgZXNwZWPDrWZpY29zEkF6w7pjYXJlcyB5IG1pZWxlcxJCYXJyaXRhcyBkZSBjZXJlYWwXQmViaWRhcyBhIGJhc2UgZGUgbGVjaGUUQmViaWRhcyBhbGNvaMOzbGljYXMwQmViaWRhcyBzaW4gYWxjb2hvbCB5IHByb2R1Y3RvcyBwYXJhIHByZXBhcmFybGFzFUJvbWJvbmVzIHkgY2hvY29sYXRlcwZDYWNhb3MTQ2Fmw6lzIHkgc3VzdGl0dXRvcw5DYWxkb3MgeSBzb3BhcyhDYXJhbWVsb3MsIGNoaWNsZXMsIGNvbmZpdGVzIHkgcGFzdGlsbGFzLkNhcm5lcyAodmFjdW5vLCBwb2xsbywgY2VyZG8sIHBlc2NhZG8geSBvdHJhcykWQ2VyZWFsZXMgcGFyYSBkZXNheXVubyhDZXJlYWxlcywgaGFyaW5hcywgcHJlbWV6Y2xhcyB5IHNlbWlsbGFzJENvYmVydHVyYXMsIHJlbGxlbm9zIHkgc2Fsc2FzIGR1bGNlcyNDb21pZGFzIHByZXBhcmFkYXMgeSBzZW1pZWxhYm9yYWRhcwtDb25kaW1lbnRvcxNDb25zZXJ2YXMgZGUgY2FybmVzE0NvbnNlcnZhcyBkZSBmcnV0YXMtQ29uc2VydmFzIGRlIGhvcnRhbGl6YXMsIHZlcmR1cmFzIHkgbGVndW1icmVzBkNyZW1hcw9EdWxjZXMgZGUgbGVjaGUURWR1bGNvcmFudGVzIGRlIG1lc2EURmlhbWJyZXMgeSBlbWJ1dGlkb3MYRnJ1dGFzIHNlY2FzIHkgZGVzZWNhZGFzFUdhbGxldGFzIHkgZ2FsbGV0aXRhcwlHb2xvc2luYXMdSG9ydGFsaXphcywgdmVyZHVyYXMgeSBob25nb3MGTGVjaGVzEkxlY2hlcyBmZXJtZW50YWRhcwlMZWd1bWJyZXMJTGV1ZGFudGVzCE1hbnRlY2FzCk1hcmdhcmluYXMfTWVybWVsYWRhcywgY29uZml0dXJhcyB5IGR1bGNlcx9QYW5lcyB5IHByb2R1Y3RvcyBkZSBwYW5hZGVyw61hLlBhc3RhcyBzZWNhcyB5IGZyZXNjYXMsIHJlbGxlbmFzIHkgc2luIHJlbGxlbm8uUG9zdHJlcywgZmxhbmVzIHkgaGVsYWRvcyBsaXN0b3MgcGFyYSBjb25zdW1pchhQcm9kdWN0b3MgZGUgY29uZml0ZXLDrWEYUHJvZHVjdG9zIGRlIHJlcG9zdGVyw61hPFByb2R1Y3RvcyBwYXJhIHByZXBhcmFyIHBvc3RyZXMsIGZsYW5lcywgZ2VsYXRpbmFzIHkgaGVsYWRvcwZRdWVzb3MFU2FsZXMaU2Fsc2FzLCBhZGVyZXpvcyB5IGFsacOxb3MGU25hY2tzFVN1cGxlbWVudG9zIGRpZXRhcmlvcxFUw6lzIGUgaW5mdXNpb25lcwpZZXJiYSBtYXRlB1lvZ3VyZXMVOQEwB0FjZWl0ZXMsQWRpdGl2b3MgeSBtYXRlcmlhcyBwcmltYXMgcGFyYSBsYSBpbmR1c3RyaWEZQWd1YXMgeSBhZ3VhcyBnYXNpZmljYWRhcwlBbGZham9yZXMFQWxnYXMlQWxpbWVudG9zIHBhcmEgbGFjdGFudGVzICgwLTEyIG1lc2VzKTVBbGltZW50b3MgcGFyYSBuacOxb3MgZW4gcHJpbWVyYSBpbmZhbmNpYSAoMS0zIGHDsW9zKTBBbGltZW50b3MgcGFyYSBwcm9ww7NzaXRvcyBtw6lkaWNvcyBlc3BlY8OtZmljb3MSQXrDumNhcmVzIHkgbWllbGVzEkJhcnJpdGFzIGRlIGNlcmVhbBdCZWJpZGFzIGEgYmFzZSBkZSBsZWNoZRRCZWJpZGFzIGFsY29ow7NsaWNhczBCZWJpZGFzIHNpbiBhbGNvaG9sIHkgcHJvZHVjdG9zIHBhcmEgcHJlcGFyYXJsYXMVQm9tYm9uZXMgeSBjaG9jb2xhdGVzBkNhY2FvcxNDYWbDqXMgeSBzdXN0aXR1dG9zDkNhbGRvcyB5IHNvcGFzKENhcmFtZWxvcywgY2hpY2xlcywgY29uZml0ZXMgeSBwYXN0aWxsYXMuQ2FybmVzICh2YWN1bm8sIHBvbGxvLCBjZXJkbywgcGVzY2FkbyB5IG90cmFzKRZDZXJlYWxlcyBwYXJhIGRlc2F5dW5vKENlcmVhbGVzLCBoYXJpbmFzLCBwcmVtZXpjbGFzIHkgc2VtaWxsYXMkQ29iZXJ0dXJhcywgcmVsbGVub3MgeSBzYWxzYXMgZHVsY2VzI0NvbWlkYXMgcHJlcGFyYWRhcyB5IHNlbWllbGFib3JhZGFzC0NvbmRpbWVudG9zE0NvbnNlcnZhcyBkZSBjYXJuZXMTQ29uc2VydmFzIGRlIGZydXRhcy1Db25zZXJ2YXMgZGUgaG9ydGFsaXphcywgdmVyZHVyYXMgeSBsZWd1bWJyZXMGQ3JlbWFzD0R1bGNlcyBkZSBsZWNoZRRFZHVsY29yYW50ZXMgZGUgbWVzYRRGaWFtYnJlcyB5IGVtYnV0aWRvcxhGcnV0YXMgc2VjYXMgeSBkZXNlY2FkYXMVR2FsbGV0YXMgeSBnYWxsZXRpdGFzCUdvbG9zaW5hcx1Ib3J0YWxpemFzLCB2ZXJkdXJhcyB5IGhvbmdvcwZMZWNoZXMSTGVjaGVzIGZlcm1lbnRhZGFzCUxlZ3VtYnJlcwlMZXVkYW50ZXMITWFudGVjYXMKTWFyZ2FyaW5hcx9NZXJtZWxhZGFzLCBjb25maXR1cmFzIHkgZHVsY2VzH1BhbmVzIHkgcHJvZHVjdG9zIGRlIHBhbmFkZXLDrWEuUGFzdGFzIHNlY2FzIHkgZnJlc2NhcywgcmVsbGVuYXMgeSBzaW4gcmVsbGVuby5Qb3N0cmVzLCBmbGFuZXMgeSBoZWxhZG9zIGxpc3RvcyBwYXJhIGNvbnN1bWlyGFByb2R1Y3RvcyBkZSBjb25maXRlcsOtYRhQcm9kdWN0b3MgZGUgcmVwb3N0ZXLDrWE8UHJvZHVjdG9zIHBhcmEgcHJlcGFyYXIgcG9zdHJlcywgZmxhbmVzLCBnZWxhdGluYXMgeSBoZWxhZG9zBlF1ZXNvcwVTYWxlcxpTYWxzYXMsIGFkZXJlem9zIHkgYWxpw7FvcwZTbmFja3MVU3VwbGVtZW50b3MgZGlldGFyaW9zEVTDqXMgZSBpbmZ1c2lvbmVzClllcmJhIG1hdGUHWW9ndXJlcxQrAzlnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dkZAIZDzwrABEBARAWABYAFgBkGAEFCUdyaWRWaWV3MQ9nZB2Z6Hs+mmKHB2uupdx8cf1S4yNhJxY5TFi3gCF4wDNK" />
+                </div>
+
+                <div class="aspNetHidden">
+                    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="999E829B" />
+                    <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWQQKe4ZPIAQLvgt2yCAL61uOuDwLWrNecDwK8p7X2AwLburRcApy1m/oCAsniku0HAubKrJ0MAtD1p/wFArfx+I0BApDYxpMBAvbC5akPAuS7o7QEAsy0n4oMAvLi1JwNAvuMwYMBAsHA6osKAoyQ1fAMAvn04ucEAo7arHwCocL4zQMC0KSuUAKn8eq7AwLWz9GRDgKHzPKIBwKTm8HVDQK85vD6CgLc/4SCBgLJk53cAwLn2sKiDALBjOL1BQK24dGPAQLnyeH4BgLluMrMAwKc9t35CQLH0ID7AgLe4JWYAwLp0+mbCgLktoX/BAL3udHwDgKV58GaDgLa3cMnAqGngoABAoTH6aIPAserktsEApOVuo0OAuKR2eMEAoDO3IkDAsrUk9cJAp3bgMEBAtTS16UPAvWbhLIOAqrKgqQOApL/35AOArvg/4oPApSNooYBAunBicwKAur0m6UIAsbX/vUOAvPGm5sNAtL2/MUNAo3HjpcOAqb7qtAMAoznisYGaxY8ToY1gXYOiD4d0KIlRxsvSfSaOMY4Dt1oSfaehLI=" />
+                </div>
+                <div class="Centrar" id="main">
+                    <span id="lblRNPA">Ingrese el RNPA</span>
+                    <br />
+                    <input name="txtRNPA" type="text" id="txtRNPA" class="txtbox" />
+                </div>
+                <br />
+                <div>
+                    <span id="lblMarca">Ingrese marca del producto</span>
+                    <br />
+                    <input name="txtMarca" type="text" id="txtMarca" class="txtbox" />
+                </div>
+                <br />
+                <div>
+                    <span id="lblNombFant">Ingrese nombre de fantasía</span>
+                    <br />
+                    <input name="txtNombFant" type="text" id="txtNombFant" class="txtbox" />
+                </div>
+                <br />
+                <div>
+                    <span id="lblEstado">Seleccione estado del producto</span>
+                    <br />
+                    <select name="cboEstado" id="cboEstado" class="cbobox" style="height:22px;width:128px;">
+                        <option value="Vigente">Vigente</option>
+                    </select>
+                    <br />
+                </div>
+                <br />
+                <div>
+                    <span>Seleccione tipo de producto</span>
+                    <br />
+                    <select name="cboTipoProd" id="cboTipoProd" class="cbobox" style="height:22px;width:128px;">
+                        <option value="0">Seleccionar...</option>
+                    </select>
+                </div>
+                <div>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br />
+                <div>
+                    <input type="submit" name="Button1" value="Buscar" id="Button1" />
+                    &nbsp;
+                    <input type='button' onclick='window.print();' value='Imprimir' />
+                </div>
+                <br />
+                <div>
+                    <div>
+                    </div>
+                </div>
+                <br />
+            </form>
+        </div>
+    </body>
+</html>
