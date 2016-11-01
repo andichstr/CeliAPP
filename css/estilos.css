@@ -14,18 +14,25 @@ body{
 
 h1{
     color:#ee9c9e;
+    font-family: 'Roboto', sans-serif;
 }
+
+p{font-family: 'Source Sans Pro', sans-serif;
+    color: #575757;
+font-size: 17px;}
 
 header{
     background: #ee9c9e;            
 	min-height: 60px;
 }
 
-
+/*
+Rosa claro #ee9c9e;
+Rosa Obscuro #d10372;*/
 footer{
     background: #d10372;
  	color: #fff;
-    min-height: 100px;
+    min-height: 60px;
  	padding: 0px;   
      
 }
