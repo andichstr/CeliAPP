@@ -33,14 +33,14 @@ try {
     curl_setopt($ch, CURLOPT_POST, count($data));
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSLVERSION,3);
+    curl_setopt($ch, CURLOPT_SSLVERSION, 3);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
     $content = curl_exec($ch);
-    
+
     var_dump($content);
-    echo $content;
-    if (FALSE === $content){
+    if (FALSE === $content) {
         throw new Exception(curl_error($ch), curl_errno($ch));
     }
     // ...process $content now
