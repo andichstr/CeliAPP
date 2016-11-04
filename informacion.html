@@ -108,12 +108,12 @@
             -se utiliza un menu de navegacion por tab para poder ir de pagina en pagina
             -con li se le da las pestañas y con role=presentation el estilo o funcion de pestaña -->
         <div class="container">
-            <ul class="nav nav-pills">
-                <li role="presentation" class="active" id="liCeliaquia"><a href="#" onclick="textoInformacion();">Celiaquia</a></li>
-                <li role="presentation" id="liDiagnostico"><a href="#" onclick="textoDiagnostico();">Diagnostico</a></li>
-                <li role="presentation" id="liSintomatologia"><a href="#" onclick="textoSintomatologia();">Sintomatologia</a></li>
-				<li role="presentation" id="liConsejUtil"><a href="#" onclick="textoConsejUtil();">Consejos últiles</a></li>
-				<li role="presentation" id="liRecCocina"><a href="#" onclick="textoRecCocina();">Recomendaciones en la cocina</a></li>
+            <ul id="menuNavegacion" class="nav nav-pills">
+                <li role="presentation" id="liCeliaquia" textValue="cajaCeliaquia" class="active"><a href="#">Celiaquia</a></li>
+                <li role="presentation" id="liDiagnostico" textValue="cajaDiagnostico"><a href="#">Diagnostico</a></li>
+                <li role="presentation" id="liSintomatologia" textValue="cajaSintomatologia"><a href="#">Sintomatologia</a></li>
+				<li role="presentation" id="liConsejUtil" textValue="cajaConsejos"><a href="#">Consejos últiles</a></li>
+				<li role="presentation" id="liRecCocina" textValue="cajaRecomendaciones"><a href="#">Recomendaciones en la cocina</a></li>
             </ul>
         </div>
         <!-- Contenedor de texto con una clase main row, justificado con text-justify y compartido con una imagen de muestra. que se van a    moldando en base al sistema de columnas-->
@@ -121,7 +121,6 @@
             <section class="main row">
                 <article class="color2 col-xs-12 col-sm-8 col-md-8 col-lg-8 ">			
                 <br>
-
                     <!-- cajaPestanias tiene todas las pestañas posibles adentro, estan ocultas y a medida que se les hace click estas se van mostrando. Por default se muestra la pestaña Celiaquia. -->
                     <div class="text-justify" id="cajaPestanias">
 
@@ -135,7 +134,6 @@
                                 <li>Información</li>
                                 <li>Celiaquia</li>			
                             </ol>
-
                             <h2>¿Que es la Celiaquia?</h2>
                             <br>                        
                             <p>
@@ -184,10 +182,8 @@
                                 <li>Información</li>
                                 <li>Diagnostico</li>          
                             </ol>
-
                             <h2>Diagnostico y tratamiento</h2>
                             <br>                        
-
                             <p>
                                 El diagnóstico se realiza mediante:
                             </p>
@@ -225,7 +221,6 @@
                                 <li>Información</li>
                                 <li>Sintomatologia</li>          
                             </ol>
-
                             <h2>Sintomatologia</h2>
                             <br>                        
                             <p>
@@ -258,7 +253,6 @@
                                 <li>Información</li>
                                 <li>Consejos Útiles</li>          
                             </ol>
-
                             <h2>¿Consejos Útiles a la hora de iniciar una dieta Sin TACC</h2>
                             <br>                        
                             <ul>
@@ -294,7 +288,6 @@
                                 <li>Información</li>
                                 <li>Recomendaciones</li>          
                             </ol>
-
                             <h2>Recomendaciones a la hora de cocinar</h2>
                             <br>                        
                             <p>
