@@ -107,6 +107,10 @@ background: #ee9c9e;}
     margin-right: auto;
 }
 
+.oculto {
+    display: none;
+}
+
 .btn-circle {
   font-family: 'Lobster', cursive;    
   width: 30px;
@@ -203,3 +207,4 @@ background: #ee9c9e;}
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
+
