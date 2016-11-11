@@ -49,7 +49,6 @@ function initMap(coordenadas) {
             window.alert("Autocomplete's returned place contains no geometry");
             return;
         }
-
         // If the place has a geometry, then present it on a map.
         if (place.geometry.viewport) {
             map.fitBounds(place.geometry.viewport);
@@ -57,16 +56,15 @@ function initMap(coordenadas) {
             map.setCenter(place.geometry.location);
             map.setZoom(15);  // Why 15? Because it looks good.
         }
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
         marker.setIcon(({
-            url: "img/logo25x25.png",
+            url: "img/logo30x30.png",
             size: new google.maps.Size(71, 71),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
         }));
-        marker.setPosition(place.geometry.location);
-        marker.setVisible(true);
-
         var address = '';
         if (place.address_components) {
             address = [
@@ -76,8 +74,8 @@ function initMap(coordenadas) {
             ].join(' ');
         }
         google.maps.event.addListener(marker, 'dragend', function (evt) {
-            var lat1 = evt.latLng.lat().toFixed(6);
-            var lng1 = evt.latLng.lng().toFixed(6);
+            var lat1 = evt.latLng.lat().toFixed(8);
+            var lng1 = evt.latLng.lng().toFixed(8);
             console.log(lat1 + ',' + lng1);
             infowindow.setContent('<div class="marcador"><strong>' + address + '</strong><br>');
             infowindow.open(map, marker);
@@ -139,7 +137,13 @@ function setMarkers(map, locations) {
         var marker = new google.maps.Marker({
             map: map, title: loan, position: latlngset
         });
-        map.setCenter(marker.getPosition())
+        marker.setIcon(({
+            url: "img/logo30x30.png",
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 25)
+        }));
         var content = "Product Number: " + loan + '</h3>' + "Precio: " + add
         var infowindow = new google.maps.InfoWindow()
         google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
