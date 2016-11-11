@@ -11,6 +11,16 @@ function initMap(coordenadas) {
         center: {lat: lat, lng: long},
         zoom: 13
     });
+    //Variables de marcado de productos
+    var locations = [
+        ['loan 1', -34.789, -58.523, '$5'],
+        ['loan 2', -34.789, -58.524, '$18'],
+        ['loan 3', -34.836, -58.494, '$98'],
+        ['loan 4', -34.850, -58.514, '$25'],
+        ['loan 5', -34.847, -58.506, '$150']
+    ];
+    //llamado de funcion de marcado de productos cargados
+    setMarkers(map, locations)
     var input = /** @type {!HTMLInputElement} */(
             document.getElementById('pac-input'));
     var input2 = document.getElementById('txtUbicacion');
@@ -31,20 +41,9 @@ function initMap(coordenadas) {
         draggable: true,
         title: "arrastrame"
     });
-
-//    var locations = [
-//        ['loan 1', -34.789, -58.523, 'address 1'],
-//        ['loan 2', -34.789, -58.524, 'address 2'],
-//        ['loan 3', -34.836, -58.494, 'address 3'],
-//        ['loan 4', -34.850, -58.514, 'address 4'],
-//        ['loan 5', -34.847, -58.506, 'address 5']
-//    ];
-    
-    
-
     autocomplete.addListener('place_changed', function () {
         infowindow.close();
-        marker.setVisible(false);
+        marker.setVisible(true);
         var place = autocomplete.getPlace();
         if (!place.geometry) {
             window.alert("Autocomplete's returned place contains no geometry");
@@ -56,7 +55,7 @@ function initMap(coordenadas) {
             map.fitBounds(place.geometry.viewport);
         } else {
             map.setCenter(place.geometry.location);
-            map.setZoom(15);  // Why 17? Because it looks good.
+            map.setZoom(15);  // Why 15? Because it looks good.
         }
         marker.setIcon(({
             url: "img/logo25x25.png",
@@ -77,28 +76,21 @@ function initMap(coordenadas) {
             ].join(' ');
         }
         google.maps.event.addListener(marker, 'dragend', function (evt) {
-            var latlng1 = evt.latLng.lat().toFixed(3) + ',' + evt.latLng.lng().toFixed(3);
-            console.log (latlng1);
-            infowindow.setContent('<div class="marcador"><strong>' + place.name + '</strong><br>' + address);
+            var lat1 = evt.latLng.lat().toFixed(6);
+            var lng1 = evt.latLng.lng().toFixed(6);
+            console.log(lat1 + ',' + lng1);
+            infowindow.setContent('<div class="marcador"><strong>' + address + '</strong><br>');
             infowindow.open(map, marker);
+            var geocoder = new google.maps.Geocoder();
+            var location = new google.maps.LatLng(lat1, lng1);
+            geocoder.geocode({'latLng': location}, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    infowindow.setContent('<div class="marcador"><strong>' + results[0].formatted_address + '</strong><br>');
+                    infowindow.open(map, marker);
+                }
+            });
         });
-
-    })
-
-//function getAddress(myLatitude,myLongitude) {
-//			
-//			var geocoder	= new google.maps.Geocoder();				// create a geocoder object
-//			var location	= new google.maps.LatLng(myLatitude, myLongitude);	// turn coordinates into an object 			
-//			geocoder.geocode({'latLng': location}, function (results, status) {
-//				if(status == google.maps.GeocoderStatus.OK) {			// if geocode success
-//					processAddress(results[0].formatted_address);		// if address found, pass to processing function
-//				} else {
-//				  alert("Geocode failure: " + status);				// alert any other error(s)
-//				  return false;
-//				}
-//			});
-//		}
-
+    });
 }
 
 function showError(error) {
@@ -135,39 +127,29 @@ function errorMapa(error) {
 }
 ;
 
-//function setMarkers(map, locations) {
-//
-//    var marker, i
-//
-//    for (i = 0; i < locations.length; i++)
-//    {
-//
-//        var loan = locations[i][0]
-//        var lat = locations[i][1]
-//        var long = locations[i][2]
-//        var add = locations[i][3]
-//
-//        latlngset = new google.maps.LatLng(lat, long);
-//
-//        var marker = new google.maps.Marker({
-//            map: map, title: loan, position: latlngset
-//        });
-//        map.setCenter(marker.getPosition())
-//
-//
-//        var content = "Loan Number: " + loan + '</h3>' + "Address: " + add
-//
-//        var infowindow = new google.maps.InfoWindow()
-//
-//        google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
-//            return function () {
-//                infowindow.setContent(content);
-//                infowindow.open(map, marker);
-//            };
-//        })(marker, content, infowindow));
-//
-//    }
-//}
+function setMarkers(map, locations) {
+    var marker, i
+    for (i = 0; i < locations.length; i++)
+    {
+        var loan = locations[i][0]
+        var lat = locations[i][1]
+        var long = locations[i][2]
+        var add = locations[i][3]
+        latlngset = new google.maps.LatLng(lat, long);
+        var marker = new google.maps.Marker({
+            map: map, title: loan, position: latlngset
+        });
+        map.setCenter(marker.getPosition())
+        var content = "Product Number: " + loan + '</h3>' + "Precio: " + add
+        var infowindow = new google.maps.InfoWindow()
+        google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
+            return function () {
+                infowindow.setContent(content);
+                infowindow.open(map, marker);
+            };
+        })(marker, content, infowindow));
+    }
+}
 
 $(document).ready(function () {
     $("#pac-input").keyup(function () {
