@@ -1,0 +1,212 @@
+        <br>
+        <!--Menu de navegacion por pills 
+            -se utiliza un menu de navegacion por tab para poder ir de pagina en pagina
+            -con li se le da las pestañas y con role=presentation el estilo o funcion de pestaña -->
+        <div class="container">
+            <ul id="menuNavegacion" class="nav nav-pills">
+                <li role="presentation" id="liCeliaquia" textValue="cajaCeliaquia" class="active"><a href="#">Celiaquia</a></li>
+                <li role="presentation" id="liDiagnostico" textValue="cajaDiagnostico"><a href="#">Diagnostico</a></li>
+                <li role="presentation" id="liSintomatologia" textValue="cajaSintomatologia"><a href="#">Sintomatologia</a></li>
+				<li role="presentation" id="liConsejUtil" textValue="cajaConsejos"><a href="#">Consejos últiles</a></li>
+				<li role="presentation" id="liRecCocina" textValue="cajaRecomendaciones"><a href="#">Recomendaciones en la cocina</a></li>
+            </ul>
+        </div>
+        <!-- Contenedor de texto con una clase main row, justificado con text-justify y compartido con una imagen de muestra. que se van a    moldando en base al sistema de columnas-->
+        <div class="container">
+            <section class="main row">
+                <article class="color2 col-xs-12 col-sm-8 col-md-8 col-lg-8 ">			
+                <br>
+                    <!-- cajaPestanias tiene todas las pestañas posibles adentro, estan ocultas y a medida que se les hace click estas se van mostrando. Por default se muestra la pestaña Celiaquia. -->
+                    <div class="text-justify" id="cajaPestanias">
+                        <!-- Caja del texto Celiaquia -->
+                        <div id="cajaCeliaquia">
+                            <!-- Migas de pan -->
+                            <ol class="breadcrumb reseteo-de-migas-de-pan migascolor">				
+                                <li><a href="index.html" class="migascolor2"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                                <li>Información</li>
+                                <li>Celiaquia</li>			
+                            </ol>
+                            <h2>¿Que es la Celiaquia?</h2>
+                            <br>                        
+                            <p>
+                                La <b>celiaquía</b> es la intolerancia permanente al <b>gluten, </b> conjunto de proteínas presentes en el trigo, avena, cebada y centeno (TACC) y productos derivados de estos cuatro cereales. Pueden padecerla tanto niños como adultos. Actualmente, la incidencia es mayor en mujeres, que en varones.
+                            </p>
+                            <br>
+                            <p>
+                                Las proteínas se clasifican en dos grupos, prolaminas y gluteninas. Las prolaminas reciben distintos nombres según el cereal de origen: 
+                            </p>                        
+                            <ul class="lin">
+                                <li>Trigo = gliadina</li>
+                                <li>Avena = avenina</li>
+                                <li>Cebada = hordeína</li>
+                                <li>Centeno = secalina</li>
+                            </ul>
+                            <p>
+                                El gluten de los cereales mencionados es la forma más conocida de presentación de las prolaminas tóxicas para los celíacos. La gliadina constituye el mayor problema, es la más utilizada en la industria alimenticia.
+                                <br>
+                                <b>La avena</b> pareciera no producir daño pero, en su proceso de industrialización, puede encontrarse contaminada granos de trigo, cebada o centeno.
+                                <br> 
+                                La Celiaquía se presenta en personas que tienen predisposición genética a padecerla. Se sabe que aparece con más frecuencia entre miembros de la misma familia. 
+                                <br>
+                                Se estima que en Argentina <b>1 de cada 100 habitantes puede ser celíaco.</b>
+                                <br> 
+                                Esta intolerancia produce una lesión característica de la mucosa intestinal provocando una atrofia de las vellosidades del intestino delgado, lo que altera o disminuye la absorción de los nutrientes de los alimentos (proteínas, grasas, hidratos de carbono, sales minerales y vitaminas). Es este fenómeno el que produce el clásico cuadro de mala absorción. 
+                                <br>
+                                La característica principal que define a esta atrofia vellositaria es que, la mucosa intestinal se normaliza cuando se inicia la dieta sin TACC.
+                                <br> 
+                                También se presenta asociada a enfermedades autoinmunes y genéticas y se puede descubrir en pacientes asintomáticos.
+                                <br> 
+                                Se dice que la celiaquía es una <b>condición autoinmune</b>, es decir que el sistema de defensa de los celíacos reconocería como extraño o no perteneciente al organismo, al gluten, y produciría anticuerpos o defensas contra el mismo. Estos anticuerpos provocarían la lesión del intestino con destrucción o atrofia de su mucosa (capa interior del intestino), produciéndose una alteración en la absorción de los alimentos.
+                            </p>
+                            <br>
+                            <p>
+                                <!-- La clase simulacionBoton emula las caracteristicas del boton en bootstrap pero sin el evento, solo el estilo. -->
+                                <div class="simulacionBoton"> Fuente <span class="glyphicon glyphicon-chevron-right"></span></div> <a a target='_blank' href='http://www.celiaco.org.ar/index.php/celiaquia/que-es-la-celiaquia-' id="info" class="btn btn-rosa" > Asociación Celíaca Argentina <span class="glyphicon glyphicon-bookmark"></span></a>
+                            </p>    
+                        </div>
+                        <!-- Caja del texto Diagnostico -->
+                        <div id="cajaDiagnostico" class="oculto">
+                            <ol class="breadcrumb reseteo-de-migas-de-pan migascolor">              
+                                <li><a href="index.html" class="migascolor2"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                                <li>Información</li>
+                                <li>Diagnostico</li>          
+                            </ol>
+                            <h2>Diagnostico y tratamiento</h2>
+                            <br>                        
+                            <p>
+                                El diagnóstico se realiza mediante:
+                            </p>
+                            <ul>
+                                <li>Autoanticuerpos con tTG (transglutaminasa tisular)</li>
+                                <li>EmA (endomisio)</li>
+                                <li>Anticuerpos o antígenos dietarios o sus interfaces como AGA2 (gliadina deaminada)</li>
+                                <li>Biopsia intestinal.</li>
+                            </ul>
+                            <p>
+                                El único tratamiento es una dieta estricta y de por vida <b>Sin TACC </b> (sin trigo, avena, cebada y centeno).
+                                <br> 
+                                Jamás se debe comenzar la dieta sin previa biopsia que la justifique.
+                                <br> 
+                                El celíaco no es un enfermo, sino una persona con una condición determinada, <b> la celiaquía no es una enfermedad, es casi un modo de ser</b>. Con una dieta correcta, segura y permanente, el celíaco, puede alcanzar los niveles nutricionales que había perdido y lograr con ello su total desarrollo físico y neurológico.
+                                <br> 
+                                Es aconsejable que la dieta del celíaco incluya además, alimentos naturales como: leche, carnes, pescados, huevos, frutas, verduras, hortalizas, legumbres y cereales sin gluten (arroz y maíz).
+                                <br> 
+                                Se debe tener precaución con los productos industrializados, ya que pueden contener gluten en su composición. Es necesario consultar los <b>listados de Alimentos y Medicamentos aptos. </b> 
+                                <br> 
+                                La ingestión de pequeñas cantidades de gluten, de manera continuada, puede causar trastornos importantes a nivel intestinal, incluso sin presentar síntomas. 
+                            </p>
+                            <br>
+                            <p>
+                                <div class="simulacionBoton"> Fuente <span class="glyphicon glyphicon-chevron-right"></span></div> <a a target='_blank' href='http://www.celiaco.org.ar/index.php/celiaquia/diagnostico-y-tratamiento-' id="info" class="btn btn-rosa" > Asociación Celíaca Argentina <span class="glyphicon glyphicon-bookmark"></span></a>
+                            </p>
+                        </div>
+                        <!-- Caja del texto Sintomatologia -->
+                        <div id="cajaSintomatologia" class="oculto">
+                            <ol class="breadcrumb reseteo-de-migas-de-pan migascolor">              
+                                <li><a href="index.html" class="migascolor2"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                                <li>Información</li>
+                                <li>Sintomatologia</li>          
+                            </ol>
+                            <h2>Sintomatologia</h2>
+                            <br>                        
+                            <p>
+                                Se manifiesta a través de diferentes síntomas y signos, según la edad:
+                            </p>
+                            <p>
+                                <b>En niños:</b> suele presentarse diarrea crónica (síndrome de mala absorción), vómitos reiterados, marcada distensión abdominal, falta de masa muscular, pérdida de peso, retraso del crecimiento, escasa estatura, cabello y piel secos, descalcificación, inapetencia, mal carácter o irritabilidad, alteraciones en el esmalte dental, dislexia, autismo, hiperactividad etc.
+                            </p>
+                            <p>
+                                <b>En adolescentes:</b> dolor abdominal, falta de ánimo, rechazo a la actividad deportiva, retraso en el ciclo menstrual y frecuentemente baja talla comparativa con los hermanos o llamativamente menor en función de lo esperado por la altura de sus padres, retraso puberal, estreñimiento, queilitis angular, aftas recurrentes, anemia ferropénica, cefaleas, etc.
+                            </p>
+                            <p>
+                                <b>En adultos:</b> osteoporosis, fracturas, artritis, diarreas, estreñimiento, desnutrición, abortos espontáneos, hijos recién nacidos con bajo peso, impotencia, infertilidad, pérdida de peso, anemia ferropénica, caída del cabello, colon irritable, menopausia precoz, astenia, depresión, epilepsia, neuropatías periféricas, cáncer digestivo, etc.
+                            </p>
+                            <p>
+                                Existen enfermedades asociadas o autoinmunes, que suelen preceder al diagnóstico de la celiaquía o manifestarse simultáneamente como: <b>Dermatitis herpetiforme, Síndrome de Down, Déficit selectivo de IgA.</b> Dentro de las enfermedades autoinmunes se encuentran: <b>Diabetes tipo I, Tiroiditis autoinmunes, Síndrome de Sjögren, Artritis reumatoidea, Psoriasis, Vitiligo, Alopecia areata, Lupus eritematoso sistémico, Enfermedad de Addison, etc. </b>
+                            </p>
+                            <br>
+                            <p>
+                                <div class="simulacionBoton"> Fuente <span class="glyphicon glyphicon-chevron-right"></span></div> <a a target='_blank' href='http://www.celiaco.org.ar/index.php/celiaquia/-sintomatologia-' id="info" class="btn btn-rosa" > Asociación Celíaca Argentina <span class="glyphicon glyphicon-bookmark"></span></a>
+                            </p>    
+                        </div>
+                        <!-- Caja del texto Consejos Utiles -->
+                        <div id="cajaConsejos" class="oculto">
+                            <ol class="breadcrumb reseteo-de-migas-de-pan migascolor">              
+                                <li><a href="index.html" class="migascolor2"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                                <li>Información</li>
+                                <li>Consejos Útiles</li>          
+                            </ol>
+                            <h2>¿Consejos Útiles a la hora de iniciar una dieta Sin TACC</h2>
+                            <br>                        
+                            <ul>
+                                <li><b>No debe iniciarse una dieta sin gluten, </b> sin haber realizado previamente una biopsia intestinal que demuestre la intolerancia al mismo, por alteración de la mucosa. </li>
+                                <li><b>La dieta debe seguirse estrictamente durante toda la vida. </b> La ingesta de pequeñas cantidades de gluten puede producir lesión de las vellosidades intestinales, aunque no siempre estas lesiones tienen por qué ir acompañadas de síntomas clínicos</li>
+                                <li><b>Se debe eliminar de la dieta</b> cualquier producto que lleve como ingrediente trigo, avena, cebada, centeno, y/o productos derivados de los mismos: almidón, harina, panificados, etc. </li>
+                                <li><b>Se pueden consumir todos los productos naturales</b> como carnes, verduras, frutas, legumbres, huevos, hortalizas, etc. </li>
+                                <li>En cuanto a la <b>CERVEZA y el WHISKY</b> consumir solo las marcas inscriptas como Libres de Gluten. </li>
+                                <li><b>Como norma general, deben eliminarse de la dieta</b> todos los productos a granel (sueltos) como harinas, cereales, especias, polvos para preparar gelatinas, etc. ya que pueden contaminarse con otros productos que contengan gluten o en el caso de las harinas de maíz y de arroz, puede suceder que la molienda se haya realizado en molinos donde también muelen otros cereales como trigo o avena. </li>
+                                <li><b>Los productos elaborados artesanalmente que no estén etiquetados, </b> donde no se pueda comprobar si están inscriptos como Libres de Gluten, se aconseja no consumirlos. </li>
+                                <li><b>Disponga de un espacio para almacenar exclusivamente los alimentos especiales sin TACC</b></li>
+                                <li><b>Evitar freír alimentos sin TACC </b>en aceites donde previamente se hayan freído productos con gluten. </li>
+                                <li><b>Utilice siempre utensilios de cocina limpios. </b> No use la misma cuchara para elaborar un plato que contiene gluten y otro que no lo tiene. </li>
+                                <li><b>Tener en cuenta la manipulación de alimentos, en bares y restaurantes. </b> Consulte la forma de elaboración, marca de especias e ingredientes de cada plato, antes de su consumo, (ejemplo: tortillas de papas, papas fritas cocidas en freidoras que se utilizan también para freír milanesas, empanadas, rebozados con gluten, etc.). Las hamburguesas, salsas, y demás, pueden contener harina de trigo para unir o espesar la preparación. </li>
+                                <li><b>Las pastas libres de gluten deben cocinarse por separado de las que contienen gluten. </b></li>
+                                <li><b>No utilice cubitos de caldo, sustitúyalos por caldos naturales o caldos sin TACC. </b> </li>
+                                <li><b>Se debe tener precaución con los alimentos importados. </b> En otros países, en especial Europa, los límites aceptados en los análisis de detección de gluten exceden los 20 mg/kg. </li>
+                                <li><b>Ante la duda de si un producto puede contener TACC, NO lo consuma.</b> </li>
+                                <li><b>Consultar el listado de Medicamentos,</b> antes de una prescripción médica, ya que algunos fármacos en sus excipientes pueden contener gluten. </li>
+                            </ul>
+                            <br>
+                            <p>
+                                <div class="simulacionBoton"> Fuente <span class="glyphicon glyphicon-chevron-right"></span></div> <a a target='_blank' href='http://www.celiaco.org.ar/index.php/dieta-sin-tacc/consejos-utiles' id="info" class="btn btn-rosa" > Asociación Celíaca Argentina <span class="glyphicon glyphicon-bookmark"></span></a>
+                            </p>
+                        </div>
+                        <!-- Caja del texto Recomendaciones en la cocina -->
+                        <div id="cajaRecomendaciones" class="oculto">
+                            <ol class="breadcrumb reseteo-de-migas-de-pan migascolor">              
+                                <li><a href="index.html" class="migascolor2"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                                <li>Información</li>
+                                <li>Recomendaciones</li>          
+                            </ol>
+                            <h2>Recomendaciones a la hora de cocinar</h2>
+                            <br>                        
+                            <p>
+                                Se manifiesta a través de diferentes síntomas y signos, según la edad:
+                            </p>
+                            <p>
+                                <b>En niños:</b> suele presentarse diarrea crónica (síndrome de mala absorción), vómitos reiterados, marcada distensión abdominal, falta de masa muscular, pérdida de peso, retraso del crecimiento, escasa estatura, cabello y piel secos, descalcificación, inapetencia, mal carácter o irritabilidad, alteraciones en el esmalte dental, dislexia, autismo, hiperactividad etc.
+                            </p>
+                            <p>
+                                <b>En adolescentes:</b> dolor abdominal, falta de ánimo, rechazo a la actividad deportiva, retraso en el ciclo menstrual y frecuentemente baja talla comparativa con los hermanos o llamativamente menor en función de lo esperado por la altura de sus padres, retraso puberal, estreñimiento, queilitis angular, aftas recurrentes, anemia ferropénica, cefaleas, etc.
+                            </p>
+                            <p>
+                                <b>En adultos:</b> osteoporosis, fracturas, artritis, diarreas, estreñimiento, desnutrición, abortos espontáneos, hijos recién nacidos con bajo peso, impotencia, infertilidad, pérdida de peso, anemia ferropénica, caída del cabello, colon irritable, menopausia precoz, astenia, depresión, epilepsia, neuropatías periféricas, cáncer digestivo, etc.
+                            </p>
+                            <p>
+                                Existen enfermedades asociadas o autoinmunes, que suelen preceder al diagnóstico de la celiaquía o manifestarse simultáneamente como: <b>Dermatitis herpetiforme, Síndrome de Down, Déficit selectivo de IgA.</b> Dentro de las enfermedades autoinmunes se encuentran: <b>Diabetes tipo I, Tiroiditis autoinmunes, Síndrome de Sjögren, Artritis reumatoidea, Psoriasis, Vitiligo, Alopecia areata, Lupus eritematoso sistémico, Enfermedad de Addison, etc. </b>
+                            </p>
+                            <br>
+                            <p>
+                                <div class="simulacionBoton"> Fuente <span class="glyphicon glyphicon-chevron-right"></span></div> <a a target='_blank' href='http://www.celiaco.org.ar/index.php/celiaquia/-sintomatologia-' id="info" class="btn btn-rosa" > Asociación Celíaca Argentina <span class="glyphicon glyphicon-bookmark"></span></a>
+                            </p>    
+                        </div>
+                    </div>
+                    <!--
+                        - posee un container
+                        - col-xs (cantidad de columnas que ocupara en tamaño extra chico)
+                        - col-sm (cantidad de columnas que ocupara en tamaño chico)
+                        - col-md (cantidad de columnas que ocupara en tamaño mediano)
+                        - col-lg (cantidad de columnas que ocupara en tamaño largo)
+                        - seguido de el tamaño va un numero, es el numero de columnas que puede adoptar, como maximo son 12 ( col-xs-12)
+                        - se usa la class row para referenciar que los elementos dentro del div son una sola fila-->
+                </article>
+                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> <img src="img/publicidad2.png" alt="" class="img-responsive img-rounded">
+                    </div>
+            </section>	
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>

@@ -1,7 +1,9 @@
 <?php
 
 include_once 'configure.php';
-
+include_once './templates/navbar.html';
+include_once './templates/acercade.html';
+include_once './templates/footer.html';
 function cargarModalLegales() {
 
     $con = new Conexion();
@@ -29,4 +31,5 @@ function cargarModalLegales() {
 }
 
 cargarModalLegales();
+echo '<script src="js/acercade.js"></script>';
 ?>

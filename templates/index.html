@@ -1,0 +1,74 @@
+        <!-- BLOQUE DE TEXTO PRINCIPAL
+                - posee un container
+                - col-xs (cantidad de columnas que ocupara en tamaño extra chico)
+                - col-sm (cantidad de columnas que ocupara en tamaño chico)
+                - col-md (cantidad de columnas que ocupara en tamaño mediano)
+                - col-lg (cantidad de columnas que ocupara en tamaño largo)
+                - seguido de el tamaño va un numero, es el numero de columnas que puede adoptar, como maximo son 12 ( col-xs-12)
+                - se usa la class row para referenciar que los elementos dentro del div son una sola fila-->    
+         
+        <div class="container mainrowpadding">
+            <section class="main row">
+                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="carousel-1" class="carousel slide" dataride="carousel">
+                        <!--Indicadores
+                            -son los indicaodres de a donde apunta cada slide -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-1" data-slide-to="1"></li>
+                            <li data-target="#carousel-1" data-slide-to="2"></li>
+                        </ol>
+                        <!--Contenedor de los slide
+                            - aqui se colocan las imagenes ty con hidden-xs y hidden-sm se especifica que el texto se oculte en esos tamaños-->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="img/slide1.png" class="img-responsive" alt="">
+
+                            </div>
+                            <!--los h3 esta vacios debido a que eran de prueba-->
+                            <div class="item">
+                                <img src="img/slide2.png" class="img-responsive" alt="">
+
+                                <!--los h3 esta vacios debido a que eran de prueba-->   
+                            </div>
+                            <div class="item">
+                                <img src="img/slide3.png" class="img-responsive" alt="">
+                            </div>
+                        </div>
+                        <!--Controles
+                                        - se crea un link de referencia con el nombre de #carousel-1
+                                        - la clase glyphicon glyphicon-chevron-left define el icono flecha
+                                        - sr-only para se usa para poder usarse en dispositivo de solo lectura
+                                        - aria-hidden restringe la visibilidad de contenedor-->
+                        <a href="#carousel-1" class="left carousel-control" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <!--Se crea un link de referencia con el nombre de #carousel-1
+                            - la clase glyphicon glyphicon-chevron-left define el icono flecha
+                            - sr-only para se usa para poder usarse en dispositivo de solo lectura
+                            - aria-hidden restringe la visibilidad de contenedor -->
+                        <a href="#carousel-1" class="right carousel-control" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Siguiente</span>
+                        </a>
+                    </div>
+                </article>
+                
+            </section> 
+            <div> 
+                <br>   
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+
+                    <h1>Bienvenido a Celiapp</h1><br>
+                    <p class="text-justify">CeliAPP es una aplicación Web la cual es nuestra manera de ayudar a los celíacos y a su entorno a facilitar el dilema del día a día respondiendo a la preguenta: <br><br><b>¿Que puedo comer? </b><br><br>A través de nuestra página ofrecemos una manera sencilla y cómoda de buscar los productos aptos para celíacos y obtener información sobre la enfermedad, para el entorno de quienes padecen ésta condición.
+                    A partir de una lista de productos brindados por el ente ANMAT podrás buscar de forma rápida y sencilla productos actos para el consumo celiaco, además posee una lista de precio sugeridos con las ubicaciones de cada uno.
+
+                    </p>      <br>
+                    <a href="acercade.php" id="info" class="btn btn-rosa"><b>Más info </b> <span class="glyphicon glyphicon-plus"></span></a>      
+                                 
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> <img src="img/publicidad.gif" alt="" class="img-responsive img-rounded">
+                    </div>
+            </div>

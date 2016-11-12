@@ -1,0 +1,19 @@
+        <div class="col col-lg-6 col-sm-9 col-xs-12">
+            <label>RNPA: </label> <br>
+            <label>Producto: </label> <br>
+            <label>Marca: </label> <br>
+            <label>Categoría: </label> <br>
+            <form id="formMapa" action="producto.php">
+                <div class="form-group">
+                    <label for="txtUbicacion">Ubicación: </label><input type="text" class="form-control controls" id="txtUbicacion" placeholder="Ingrese la ubicación aqui"/>
+                </div>
+                <div id="divForm" class="form-group" style="display: none">
+                    <label for="Precio">Precio: </label> <input type="number" step="0.01" id="Precio" style="width: 80%" placeholder="Ingrese el precio"/>
+                    <input type="submit" value="Enviar"/>
+                </div>
+                <input type="button" value="Volver"/>
+            </form>
+        </div>
+        <input id="pac-input" class="controls" type="text" placeholder="Ingrese la ubicación aquí">
+        <div id="map" class="col col-lg-6 col-sm-9 col-xs-12"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiL0MS78k5RHH_06DUTaZyzegUjYSbGEY&signed_in=true&libraries=places&callback=getLocation" async defer></script>
