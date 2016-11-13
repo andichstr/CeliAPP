@@ -4,9 +4,9 @@
             -con li se le da las pestañas y con role=presentation el estilo o funcion de pestaña -->
         <div class="container">
             <ul class="nav nav-pills">
-                <li role="presentation" class="active" id="liAcercaDe"><a href="#" onclick="textoAcercaDe();">CeliAPP</a></li>
+                <li role="presentation" id="liAcercaDe"><a href="#" onclick="textoAcercaDe();">CeliAPP</a></li>
                 <li role="presentation" id="liDesarrolladores"><a href="desarrolladores.php">Desarrolladores</a></li>
-                <li role="presentation" id="liDesarrollo"><a href="desarrollodesoftware.php">Desarrollo de Software</a></li>
+                <li role="presentation" id="liDesarrollo" class="active"><a href="desarrollodesoftware.php">Desarrollo de Software</a></li>
             </ul>
         </div>
         <!-- Contenedor de texto con una clase main row, justificado con text-justify y compartido con una imagen de muestra. que se van a    moldando en base al sistema de columnas-->
@@ -20,7 +20,7 @@
                         <li><a href="index.html" class="migascolor2"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
                         <li id="txtAcercaDe">Acerca de CeliApp</li>
                     </ol>
-                    <h2 id="txtTitulo">¿Qué es CeliApp?</h2><br>
+                    <h2 id="txtTitulo">Catedra de desarrollo de software</h2><br>
                     <div class="text-justify" id="txtDesc">
                         <p>CeliAPP nació en Argentina como una herramienta útil para la comunidad,  luego de conocer el día a día y la problemática que atraviesan nuestros allegados con celiaquía.</p>
                         <p>La dificultad de encontrar los productos de manera sencilla o la necesidad de  utilizar múltiples servicios para obtener los resultados esperados, hace que sea muy frustrante y tedioso para las personas con esta condición.</p><br>
@@ -35,32 +35,5 @@
                     - seguido de el tamaño va un numero, es el numero de columnas que puede adoptar, como maximo son 12 ( col-xs-12)
                     - se usa la class row para referenciar que los elementos dentro del div son una sola fila
                     -->
-                    <div class="text-left" id="divLegales">                       
-                        <a href="#" id="aLegales" class="btn btn-rosa">Términos y Condiciones</a>
-                    </div>
-                    <div class="modal fade" id="divModal" role="dialog">
-                        <div class="modal-dialog">
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title" id="modalTitle"></h4>
-                                </div>
-                                <div class="modal-body" id="modalDesc">
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> <img src="img/publicidad2.png" alt="" class="img-responsive img-rounded">
-                    </div>
-            </section>	
-            <br>
-            <br>
-            <br>
-              
+                  
         </div>
