@@ -1,0 +1,72 @@
+<!--SCRIPT PARA CAMBIAR LOS NOMBRES ENTRE PÁGINAS -->
+<script language="javascript">
+    document.title = "Recomendaciones";
+</script>     
+        
+              <br>
+        <!--Menu de navegacion por pills 
+            -se utiliza un menu de navegacion por tab para poder ir de pagina en pagina
+            -con li se le da las pestañas y con role=presentation el estilo o funcion de pestaña -->
+         <div class="container">
+            <ul class="nav nav-pills">
+                <li role="presentation" id="liAcercaDe"><a href="acercade.php" >Celiaquia</a></li>
+                <li role="presentation"  id="liDesarrolladores"><a href="diagnostico.php">Diagnostico</a></li>
+                <li role="presentation" id="liDesarrollo"><a href="sintomatologia.php">Sintomatologia</a></li>
+                <li role="presentation" id="liDesarrollo"><a href="consejosutiles.php">Consejos utiles</a></li>
+                <li role="presentation"  class="active" id="liDesarrollo"><a href="recomendaciones.php">Recomendaciones</a></li>
+            </ul>
+        </div>
+        <!-- Contenedor de texto con una clase main row, justificado con text-justify y compartido con una imagen de muestra. que se van a    moldando en base al sistema de columnas-->
+        <div class="container">
+            <section class="main row">
+                <article class="color2 col-xs-12 col-sm-8 col-md-8 col-lg-8 ">			
+                <br>
+                    <!-- cajaPestanias tiene todas las pestañas posibles adentro, estan ocultas y a medida que se les hace click estas se van mostrando. Por default se muestra la pestaña Celiaquia. -->
+                    <div class="text-justify" id="cajaPestanias">                                                 
+                        <!-- Caja del texto Diagnostico -->
+                      
+                            <ol class="breadcrumb reseteo-de-migas-de-pan migascolor">              
+                                <li><a href="index.html" class="migascolor2"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                                <li>Información</li>
+                                <li>Recomendaciones</li>          
+                            </ol>
+                            <h2>Recomendaciones a la hora de cocinar</h2>
+                            <br>                        
+                            <p>
+                                Se manifiesta a través de diferentes síntomas y signos, según la edad:
+                            </p>
+                            <p>
+                                <b>En niños:</b> suele presentarse diarrea crónica (síndrome de mala absorción), vómitos reiterados, marcada distensión abdominal, falta de masa muscular, pérdida de peso, retraso del crecimiento, escasa estatura, cabello y piel secos, descalcificación, inapetencia, mal carácter o irritabilidad, alteraciones en el esmalte dental, dislexia, autismo, hiperactividad etc.
+                            </p>
+                            <p>
+                                <b>En adolescentes:</b> dolor abdominal, falta de ánimo, rechazo a la actividad deportiva, retraso en el ciclo menstrual y frecuentemente baja talla comparativa con los hermanos o llamativamente menor en función de lo esperado por la altura de sus padres, retraso puberal, estreñimiento, queilitis angular, aftas recurrentes, anemia ferropénica, cefaleas, etc.
+                            </p>
+                            <p>
+                                <b>En adultos:</b> osteoporosis, fracturas, artritis, diarreas, estreñimiento, desnutrición, abortos espontáneos, hijos recién nacidos con bajo peso, impotencia, infertilidad, pérdida de peso, anemia ferropénica, caída del cabello, colon irritable, menopausia precoz, astenia, depresión, epilepsia, neuropatías periféricas, cáncer digestivo, etc.
+                            </p>
+                            <p>
+                                Existen enfermedades asociadas o autoinmunes, que suelen preceder al diagnóstico de la celiaquía o manifestarse simultáneamente como: <b>Dermatitis herpetiforme, Síndrome de Down, Déficit selectivo de IgA.</b> Dentro de las enfermedades autoinmunes se encuentran: <b>Diabetes tipo I, Tiroiditis autoinmunes, Síndrome de Sjögren, Artritis reumatoidea, Psoriasis, Vitiligo, Alopecia areata, Lupus eritematoso sistémico, Enfermedad de Addison, etc. </b>
+                            </p>
+                            <br>
+                            
+                        </div>
+                 
+                    <!--
+                        - posee un container
+                        - col-xs (cantidad de columnas que ocupara en tamaño extra chico)
+                        - col-sm (cantidad de columnas que ocupara en tamaño chico)
+                        - col-md (cantidad de columnas que ocupara en tamaño mediano)
+                        - col-lg (cantidad de columnas que ocupara en tamaño largo)
+                        - seguido de el tamaño va un numero, es el numero de columnas que puede adoptar, como maximo son 12 ( col-xs-12)
+                        - se usa la class row para referenciar que los elementos dentro del div son una sola fila-->
+                </article>
+                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> <img src="img/publicidad2.png" alt="" class="img-responsive img-rounded">
+                    </div>
+            </section>	
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
