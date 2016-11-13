@@ -44,10 +44,10 @@ function textoSoftware(){
 $(document).ready(function(){
     $("#aLegales").on('click', function(){
         $.ajax({
-            url: 'acercade.php',
+            url: 'cargarlegales.php',
             method: 'POST',
             success: function(response){
-                //console.log(response);
+                console.log(response);
                 var texto = JSON.parse(response);
                 //console.log(texto);
                 var txt = "";
