@@ -28,8 +28,8 @@ h1,h2{
 
 header{
     background: #ffffff;
-    min-height: 60px;
-    padding-bottom: 122px;
+    min-height: 80px;
+    padding-bottom: 0px;
 }
 
 /*
@@ -231,3 +231,8 @@ footer{
   transform: translate3d(0,0,0);
 }
 
+.estilo{
+    height: 50px;
+    width: 50px;
+    background: #ee9c9e;
+}
