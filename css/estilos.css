@@ -29,8 +29,9 @@ h1,h2{
 
 header{
     background: #ee9c9e;
-    min-height: 50px;
-    margin-bottom: 80px;
+    min-height: 80px;
+    margin-bottom: 50px;
+   
 }
 
 
@@ -72,7 +73,7 @@ footer{
 }
 
 .separador {
-	margin-top: 50px;
+	margin-top: 10px;
 }
 
 .navcolor{
