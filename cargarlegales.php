@@ -14,8 +14,8 @@ function cargarModalLegales() {
         //var_dump($result);
         $txt = "";
         foreach ($result as $row) {
-            $titulo = utf8_encode($row['titulo']);
-            $desc = utf8_encode($row['descripcion']);
+            $titulo = $row['titulo'];
+            $desc = $row['descripcion'];
             $legales[] = array('titulo' => $titulo, 'descripcion' => $desc);
         }
         //var_dump($legales);
