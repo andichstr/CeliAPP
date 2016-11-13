@@ -112,6 +112,13 @@ footer{
     margin-right: auto;
 }
 
+.izquierda {	
+    text-align:left;
+    vertical-align:middle;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .oculto {
     display: none;
 }
@@ -248,4 +255,8 @@ text-decoration: none;
     height: 50px;
     width: 50px;
     background: #ee9c9e;
+}
+
+@media (max-width: 767px) {
+    .izquierda { text-align:center }
 }

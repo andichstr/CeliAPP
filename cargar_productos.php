@@ -10,22 +10,12 @@ function cargarFormulario() {
     $query->execute();
     $result = $query->fetchAll();
     if (is_array($result) || is_object($result)) {
-        $i = 1;
         echo '<div class="form-group">';
-        echo '<div class="row">';
         foreach ($result as $row) {
-            echo '<div class="col col-sm-2 col-lg-2">';
-            echo '<input type="button" class="cat-boton" value="' .$row['categoria']. '" onclick="enviarFormulario(\'' .$row['categoria']. '\')"/>';
+            echo '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 izquierda" style="padding-bottom: 2px">';
+            echo '<input type="button" class="btn btn-rosa" value="' .$row['categoria']. '" onclick="enviarFormulario(\'' .$row['categoria']. '\')"/>';
             echo '</div>';
-            if ($i == 12) {
-                echo '</div>';
-                echo '<div class="row">';
-                $i = 1;
-            } else {
-                $i += 1;
-            }
         }
-        echo '</div>';
         echo '</div>';
     } else if (isset($result)) {
         echo '<div class="form-group">';
