@@ -7,6 +7,7 @@
     box-sizing: border-box;
 }
 
+
 body{
     background: #ffffff;
     padding-top: 0px;
@@ -32,6 +33,10 @@ header{
     padding-bottom: 0px;
 }
 
+
+.nombre {color: #fff;
+    font-size: 12px;
+    font-family: 'Source Sans Pro', sans-serif;}
 /*
 Rosa claro #ee9c9e;
 Rosa Obscuro #d10372;*/
@@ -214,7 +219,14 @@ footer{
   transition: opacity 0.35s, transform 0.45s;
   -webkit-transform: translate3d(-10px,0,0);
   transform: translate3d(-10px,0,0);
+text-decoration: none;
 }
+
+
+.hovereffect a:hover{    
+    font-size: 28px;
+}
+
 
 .hovereffect:hover img {
   opacity: 0.6;
