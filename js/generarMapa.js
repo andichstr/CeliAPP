@@ -13,11 +13,11 @@ function initMap(coordenadas) {
     });
     //Variables de marcado de productos
     var locations = [
-        ['loan 1', -34.789, -58.523, '$5'],
-        ['loan 2', -34.789, -58.524, '$18'],
-        ['loan 3', -34.836, -58.494, '$98'],
-        ['loan 4', -34.850, -58.514, '$25'],
-        ['loan 5', -34.847, -58.506, '$150']
+        [-34.791, -58.523, '$5', '10/11/2016', 'Cristian Escudero'],
+        [-34.791, -58.526, '$7', '11/11/2016', 'Maximiliano Soria'],
+        [-34.791, -58.522, '$6', '12/11/2016', 'Fernando Piriz'],
+        [-34.792, -58.526, '$8', '13/11/2016', 'Andres Schuster'],
+        [-34.790, -58.525, '$10', '14/11/2016', 'Matias Medina']
     ];
     //llamado de funcion de marcado de productos cargados
     setMarkers(map, locations)
@@ -87,7 +87,7 @@ function initMap(coordenadas) {
                     infowindow.open(map, marker);
                 }
             });
-        });
+        })
     });
 }
 
@@ -107,6 +107,17 @@ function showError(error) {
             break;
     }
 }
+
+function coordToAddress(lat, lng) {
+    var geocoder = new google.maps.Geocoder(); // create a geocoder object
+    var location = new google.maps.LatLng(lat, lng);    // turn coordinates into an object          
+    geocoder.geocode({'latLng': location}, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            return results[0].formatted_address;
+        }
+    });
+}
+;
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -129,13 +140,14 @@ function setMarkers(map, locations) {
     var marker, i
     for (i = 0; i < locations.length; i++)
     {
-        var loan = locations[i][0]
-        var lat = locations[i][1]
-        var long = locations[i][2]
-        var add = locations[i][3]
+        var lat = locations[i][0]
+        var long = locations[i][1]
+        var precio = locations[i][2]
+        var fecha = locations [i][3]
+        var nick = locations[i][4]
         latlngset = new google.maps.LatLng(lat, long);
         var marker = new google.maps.Marker({
-            map: map, title: loan, position: latlngset
+            map: map, title: nick, position: latlngset
         });
         marker.setIcon(({
             url: "img/logo30x30.png",
@@ -144,7 +156,8 @@ function setMarkers(map, locations) {
             anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
         }));
-        var content = "Product Number: " + loan + '</h3>' + "Precio: " + add
+        var content = "Precio: " + precio + '<br>' + "Fecha: " + fecha + '<br>' + "Usuario: " + nick
+//        var content = "Direccion: " + lugar + '<br>' + "Precio: " + precio + '<br>' + "Fecha: " + fecha + '<br>' + "Nick: " + nick
         var infowindow = new google.maps.InfoWindow()
         google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
             return function () {
@@ -162,8 +175,6 @@ $(document).ready(function () {
     $("#txtUbicacion").keyup(function () {
         $("#pac-input").val($("#txtUbicacion").val());
     });
-
-
     $("#formMapa").on('submit', function (event) {
         event.preventDefault();
     });
