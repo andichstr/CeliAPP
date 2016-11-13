@@ -28,9 +28,9 @@ h1,h2{
 
 
 header{
-    background: #ffffff;
-    min-height: 80px;
-    padding-bottom: 0px;
+    background: #ee9c9e;
+    min-height: 50px;
+    margin-bottom: 80px;
 }
 
 
@@ -72,7 +72,7 @@ footer{
 }
 
 .separador {
-	padding: 60px;
+	margin-top: 50px;
 }
 
 .navcolor{

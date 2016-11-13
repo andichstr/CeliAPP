@@ -6,7 +6,7 @@
         <!--Menu de navegacion por pills 
             -se utiliza un menu de navegacion por tab para poder ir de pagina en pagina
             -con li se le da las pestañas y con role=presentation el estilo o funcion de pestaña -->
-        <div class="container">
+        <div class="container separador">
             <ul class="nav nav-pills">
                 <li role="presentation" id="liAcercaDe"><a href="#" onclick="textoAcercaDe();">CeliAPP</a></li>
                 <li role="presentation" id="liDesarrolladores"><a href="desarrolladores.php">Desarrolladores</a></li>
@@ -15,21 +15,23 @@
         </div>
         <!-- Contenedor de texto con una clase main row, justificado con text-justify y compartido con una imagen de muestra. que se van a    moldando en base al sistema de columnas-->
         <div class="container">
-            <section class="main row">
+             <section class="main row">
                 <article class="color2 col-xs-12 col-sm-8 col-md-8 col-lg-8">			
                     <br>
 
                     <!-- Migas de pan -->
                     <ol class="breadcrumb reseteo-de-migas-de-pan migascolor">				
                         <li><a href="index.html" class="migascolor2"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-                        <li id="txtAcercaDe">Acerca de CeliApp</li>
+                        <li>Acerca de Desarrollo de software</li>
                     </ol>
-                    <h2 id="txtTitulo">Catedra de desarrollo de software</h2><br>
-                    <div class="text-justify" id="txtDesc">
-                        <p>CeliAPP nació en Argentina como una herramienta útil para la comunidad,  luego de conocer el día a día y la problemática que atraviesan nuestros allegados con celiaquía.</p>
-                        <p>La dificultad de encontrar los productos de manera sencilla o la necesidad de  utilizar múltiples servicios para obtener los resultados esperados, hace que sea muy frustrante y tedioso para las personas con esta condición.</p><br>
-                        <p>Es por eso que desde CeliAPP queremos ayudar a hacer esta tarea mucho más amena, aportando agilidad en la búsqueda, ofreciendo  orientación sobre los posibles lugares de compra y precios de referencia que los mismos usuarios pueden agregar asegurando un compromiso  para el resto de la comunidad.</p><br>
-                    </div>
+                    <h2>Catedra de desarrollo de software</h2><br>
+                        <p class="text-justify">Nosotros somos un grupo de desarrolladores pertenecientes a la Universidad Provincial de Ezeiza. <br>  
+                        En mediados del año 2016 nos proponen para la cátedra de Desarrollo de Software desarrollar un proyecto de software completo. <br>	
+                        El trabajo en equipo y el compañerismo fue crucial para llevar a cabo la labor de entender cómo funciona el proceso del entendimiento y el desarrollo de un proyecto en equipo. <br>
+                        El equipo  está conformado por un grupo de profesionales técnicos con habilidades y con personalidades variadas. 
+                        </p>
+                                        
+
                     <!--
                     - posee un container
                     - col-xs (cantidad de columnas que ocupara en tamaño extra chico)
@@ -39,5 +41,10 @@
                     - seguido de el tamaño va un numero, es el numero de columnas que puede adoptar, como maximo son 12 ( col-xs-12)
                     - se usa la class row para referenciar que los elementos dentro del div son una sola fila
                     -->
-                  
-        </div>
+                    
+                   
+                    
+                </article>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> <img src="img/publicidad2.png" alt="" class="img-responsive img-rounded">
+                    </div>
+            </section>	
