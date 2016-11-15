@@ -1,3 +1,5 @@
+var marcadores = [];
+
 function initMap(coordenadas) {
     console.log(coordenadas);
     if (coordenadas != 0) {
@@ -11,6 +13,15 @@ function initMap(coordenadas) {
         center: {lat: lat, lng: long},
         zoom: 13
     });
+    var options = {
+        types: ['geocode'],
+        componentRestrictions: {country: "arg"}
+    };
+    var centerControlDiv = document.createElement('div');
+    var centerControl = new CenterControl(centerControlDiv, map);
+
+    centerControlDiv.index = 1;
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
     //Variables de marcado de productos
     var locations = [
         [-34.791, -58.523, '$5', '10/11/2016', 'Cristian Escudero'],
@@ -29,9 +40,9 @@ function initMap(coordenadas) {
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.bindTo('bounds', map);
-    var autocomplete2 = new google.maps.places.Autocomplete(input2);
+    var autocomplete2 = new google.maps.places.Autocomplete(input2, options);
     autocomplete2.bindTo('bounds', map);
 
     var infowindow = new google.maps.InfoWindow();
@@ -179,3 +190,60 @@ $(document).ready(function () {
         event.preventDefault();
     });
 });
+
+function CenterControl(controlDiv, map) {
+
+    // Set CSS for the control border.
+    var controlUI = document.createElement('div');
+    controlUI.style.backgroundColor = '#fff';
+    controlUI.style.border = '2px solid #fff';
+    controlUI.style.borderRadius = '3px';
+    controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.marginBottom = '22px';
+    controlUI.style.textAlign = 'center';
+    controlUI.title = 'Click to recenter the map';
+    controlDiv.appendChild(controlUI);
+
+    // Set CSS for the control interior.
+    var controlText = document.createElement('div');
+    controlText.style.color = 'rgb(25,25,25)';
+    controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+    controlText.style.fontSize = '16px';
+    controlText.style.lineHeight = '38px';
+    controlText.style.paddingLeft = '5px';
+    controlText.style.paddingRight = '5px';
+    controlText.innerHTML = 'Center Map';
+    controlUI.appendChild(controlText);
+
+    // Setup the click event listeners: simply set the map to Chicago.
+    controlUI.addEventListener('click', function () {
+        map.addListener('click', function (event) {
+            placeMarker(event.latLng, map);
+            google.maps.event.clearListeners(map, 'click');
+            mostrarAgregarPrecio();
+        });
+    });
+}
+
+function placeMarker(location, map) {
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        draggable: true
+    });
+    marker.setIcon({
+        url: "img/logo30x30.png",
+        scaledSize: new google.maps.Size(25, 25)
+    });
+//    marker.addEventListener('dragend', function (evt){
+//        mostrarAgregarPrecio();
+//    });
+//    marcadores.push(marker.latLng);
+//    console.log(marcadores[0]);
+}
+;
+
+function mostrarAgregarPrecio(){
+    
+};
