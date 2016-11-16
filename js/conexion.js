@@ -1,6 +1,7 @@
 $(document).ready(function () {
     console.log(localStorage.getItem("producto"));
-    if (localStorage.getItem("producto") !== null){
+    console.log(localStorage.getItem("producto-oculto"));
+    if (localStorage.getItem("producto") != null || localStorage.getItem("producto") != undefined){
         var parametros = {
             "producto": localStorage.getItem("producto")
         };
@@ -10,14 +11,21 @@ $(document).ready(function () {
             type: 'POST',
             success: function (response) {
                 if (response != '0') {
-                    $("#listado").html(response);
-                    $("#tabla-busqueda").show();
-                    $("#buscar-form").hide();
-                    $("#divVolver").html('<input type="button" value="Volver" onclick="volverBuscarNombreMarca();"/>');
+                    if (response == " "){
+                        $("#prebusqueda").html("No se encontraron valores con ese producto.");
+                        $("#prebusqueda").addClass("bg-warning");
+                        $("#prebusqueda").show();
+                    } else {
+                        $("#listado").html(response);
+                        $("#tabla-busqueda").show();
+                        $("#buscar-form").hide();
+                        $("#divVolver").html('<input type="button" value="Volver" onclick="volverBuscarNombreMarca();"/>');
+                    }
                 } else {
-                    $("#listado").html('No se encontraron resultados con esos valores');
+                    $("#prebusqueda").html('No se encontraron resultados con esos valores');
+                    $("#prebusqueda").addClass("bg-warning");
+                    $("#prebusqueda").show();
                 }
-                console.log(response);
             },
             failure: function (response) {
                 $("#prebusqueda").addClass("bg-danger");
@@ -26,6 +34,7 @@ $(document).ready(function () {
             }
         });
         localStorage.removeItem("producto");
+        localStorage.removeItem("producto-oculto");
     };
     $("#buscar-form").on('submit', (function (event) {
         event.preventDefault();
