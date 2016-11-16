@@ -15,7 +15,7 @@ require_once('conexion.php');
 //  define("user", "u602243947_root");
 
 //------------Datos LocalHost------------
-define("database", "prueba");
+define("database", "celiapp");
 define("host", "localhost");
 define("user", "root");
 define("password", "");
