@@ -115,3 +115,11 @@ function volverBuscarCategoria() {
     $("#buscar-cat-form").show();
     $("#divVolver > input").remove();
 };
+
+function redirigirProducto(producto, marca, categoria){
+    localStorage.setItem("productoMapa", producto);
+    localStorage.setItem("marcaMapa", marca)
+    localStorage.setItem("categoriaMapa", categoria)
+    url = './producto.php';
+    document.location.href = url;
+};

@@ -26,6 +26,7 @@ function validarFormulario() {
                 echo '<td>' . $row['categoria'] . '</td>';
                 echo '<td>' . $row['marca'] . '</td>';
                 echo '<td>' . $row['descripcion'] . '</td>';
+                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . $row['descripcion'] . '\', \'' . $row['marca'] . '\', \'' . $row['categoria'] . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
                 echo '</tr>';
             }
         } else if (isset($result)) {
@@ -35,6 +36,7 @@ function validarFormulario() {
                 echo '<td>' . $result['categoria'] . '</td>';
                 echo '<td>' . $result['marca'] . '</td>';
                 echo '<td>' . $result['descripcion'] . '</td>';
+                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . $result['descripcion'] . '\', \'' . $result['marca'] . '\', \'' . $result['categoria'] . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
                 echo '</tr>';
             } else {
                 echo '0';

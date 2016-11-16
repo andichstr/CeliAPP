@@ -105,21 +105,22 @@
             </div>
         </header>
         <!-- #################################################-FIN DEHEADER-#################################################-->
-
+        <div class="row">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" id="titulo">
+            </div>
+        </div>
         <div class="col col-lg-6 col-sm-9 col-xs-12">
-            <label>RNPA: </label> <br>
-            <label>Producto: </label> <br>
-            <label>Marca: </label> <br>
-            <label>Categoría: </label> <br>
+            <label>Marca: </label> <label id="marca"></label><br>
+            <label>Categoría: </label> <label id="categoria"></label><br>
             <form id="formMapa" action="producto.php">
                 <div class="form-group">
-                    <label for="txtUbicacion">Ubicación: </label><input type="text" class="form-control controls" id="txtUbicacion" placeholder="Ingrese la ubicación aqui"/>
+                    <label for="txtUbicacion">Ubicación: (en el Mapa)</label><input type="text" class="form-control controls" id="txtUbicacion" placeholder="Ingrese la ubicación aqui"/>
                 </div>
                 <div id="divForm" class="form-group" style="display: none">
-                    <label for="Precio">Precio: </label> <input type="number" step="0.01" id="Precio" style="width: 80%" placeholder="Ingrese el precio"/>
+                    <label for="Precio">Precio: (en el Mapa)</label> <input type="number" step="0.01" id="Precio" style="width: 80%" placeholder="Ingrese el precio"/>
                     <input type="submit" value="Enviar"/>
                 </div>
-                <input type="button" value="Volver"/>
+                <a href="./busqueda_categoria.php"><button type="button" class="btn btn-rosa">Volver</button></a>
             </form>
         </div>
         <input id="pac-input" class="controls" type="text" placeholder="Ingrese la ubicación aquí">
