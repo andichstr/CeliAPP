@@ -11,5 +11,8 @@ $(document).ready(function () {
     var categoriaProducto = localStorage.getItem("categoriaMapa")
     $("#titulo").html(tituloProducto);
     $("#marca").html(marcaProducto);
-    $("#categoria").html(categoriaProducto);    
+    $("#categoria").html(categoriaProducto);
+    localStorage.removeItem('productoMapa');
+    localStorage.removeItem('marcaMapa');
+    localStorage.removeItem('categoriaMapa');
 });
