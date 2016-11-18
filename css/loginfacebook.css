@@ -1,12 +1,14 @@
 strong, img {
-	display: inline-block;
+    display: inline-block;
+    vertical-align: central;
 }
 .img {
-	margin: 0 auto;
-	border-radius: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
     max-height: 35px;
     max-width: 35px;
+    vertical-align: central;
 }
 #logout {
-	margin-top: 10px;
+    vertical-align: central;
 }
