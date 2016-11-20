@@ -1,5 +1,4 @@
 var marcadores = [];
-
 function initMap(coordenadas) {
     console.log(coordenadas);
     if (coordenadas != 0) {
@@ -19,7 +18,6 @@ function initMap(coordenadas) {
     };
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
-
     centerControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDiv);
     //Variables de marcado de productos
@@ -31,20 +29,13 @@ function initMap(coordenadas) {
         [-34.790, -58.525, '$10', '14/11/2016', 'Matias Medina']
     ];
     //llamado de funcion de marcado de productos cargados
-    setMarkers(map, locations)
-    var input = /** @type {!HTMLInputElement} */(
-            document.getElementById('pac-input'));
-    var input2 = document.getElementById('txtUbicacion');
-
+    setMarkers(map, locations);
+    var input = (document.getElementById('pac-input'));
     var types = document.getElementById('type-selector');
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
-
     var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.bindTo('bounds', map);
-    var autocomplete2 = new google.maps.places.Autocomplete(input2, options);
-    autocomplete2.bindTo('bounds', map);
-
     var infowindow = new google.maps.InfoWindow();
     var marker = new google.maps.Marker({
         map: map,
@@ -53,8 +44,11 @@ function initMap(coordenadas) {
         title: "arrastrame"
     });
     autocomplete.addListener('place_changed', function () {
-        infowindow.close();
         marker.setVisible(true);
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].clear();
+        infowindow.setContent('<div class="marcador"><strong>' + autocomplete.getPlace().formatted_address + '</strong><br>');
+        infowindow.open(map, marker);
+        $("#pac-input").remove();
         var place = autocomplete.getPlace();
         if (!place.geometry) {
             window.alert("Autocomplete's returned place contains no geometry");
@@ -65,15 +59,12 @@ function initMap(coordenadas) {
             map.fitBounds(place.geometry.viewport);
         } else {
             map.setCenter(place.geometry.location);
-            map.setZoom(15);  // Why 15? Because it looks good.
+            map.setZoom(15); // Why 15? Because it looks good.
         }
         marker.setPosition(place.geometry.location);
         marker.setVisible(true);
         marker.setIcon(({
             url: "img/logo30x30.png",
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
         }));
         var address = '';
@@ -88,8 +79,6 @@ function initMap(coordenadas) {
             var lat1 = evt.latLng.lat().toFixed(8);
             var lng1 = evt.latLng.lng().toFixed(8);
             console.log(lat1 + ',' + lng1);
-            infowindow.setContent('<div class="marcador"><strong>' + address + '</strong><br>');
-            infowindow.open(map, marker);
             var geocoder = new google.maps.Geocoder();
             var location = new google.maps.LatLng(lat1, lng1);
             geocoder.geocode({'latLng': location}, function (results, status) {
@@ -121,15 +110,17 @@ function showError(error) {
 
 function coordToAddress(lat, lng) {
     var geocoder = new google.maps.Geocoder(); // create a geocoder object
-    var location = new google.maps.LatLng(lat, lng);    // turn coordinates into an object          
+    var location = new google.maps.LatLng(lat, lng); // turn coordinates into an object          
     geocoder.geocode({'latLng': location}, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            return results[0].formatted_address;
+//            console.log(results[0].formatted_address);
+            var direccion1 = "<strong>" + results[0].formatted_address + "</strong>";
+            console.log(typeof(direccion1));
+            return direccion1;
         }
     });
 }
 ;
-
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(initMap, errorMapa);
@@ -140,13 +131,11 @@ function getLocation() {
     }
 }
 ;
-
 function errorMapa(error) {
     coordenadas = 0;
     initMap(coordenadas);
 }
 ;
-
 function setMarkers(map, locations) {
     var marker, i
     for (i = 0; i < locations.length; i++)
@@ -157,18 +146,18 @@ function setMarkers(map, locations) {
         var fecha = locations [i][3]
         var nick = locations[i][4]
         latlngset = new google.maps.LatLng(lat, long);
+//        console.log (direccion);
+//        var direccion = coordToAddress(lat, long);
+//        console.log (direccion);
         var marker = new google.maps.Marker({
             map: map, title: nick, position: latlngset
         });
         marker.setIcon(({
             url: "img/logo30x30.png",
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
         }));
-        var content = "Precio: " + precio + '<br>' + "Fecha: " + fecha + '<br>' + "Usuario: " + nick
-//        var content = "Direccion: " + lugar + '<br>' + "Precio: " + precio + '<br>' + "Fecha: " + fecha + '<br>' + "Nick: " + nick
+//        var content = "Precio: " + precio + '<br>' + "Fecha: " + fecha + '<br>' + "Usuario: " + nick
+        var content = "Direccion: " + coordToAddress(lat, long) + '<br>' + "Precio: " + precio + '<br>' + "Fecha: " + fecha + '<br>' + "Nick: " + nick
         var infowindow = new google.maps.InfoWindow()
         google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
             return function () {
@@ -190,7 +179,6 @@ $(document).ready(function () {
         event.preventDefault();
     });
 });
-
 function CenterControl(controlDiv, map) {
 
     // Set CSS for the control border.
@@ -202,9 +190,8 @@ function CenterControl(controlDiv, map) {
     controlUI.style.cursor = 'pointer';
     controlUI.style.marginBottom = '22px';
     controlUI.style.textAlign = 'center';
-    controlUI.title = 'Click to recenter the map';
+    controlUI.title = 'Click para agregar un marcador';
     controlDiv.appendChild(controlUI);
-
     // Set CSS for the control interior.
     var controlText = document.createElement('div');
     controlText.style.color = 'rgb(25,25,25)';
@@ -213,14 +200,14 @@ function CenterControl(controlDiv, map) {
     controlText.style.lineHeight = '38px';
     controlText.style.paddingLeft = '5px';
     controlText.style.paddingRight = '5px';
-    controlText.innerHTML = 'Center Map';
+    controlText.innerHTML = 'Agregar un Marcador';
     controlUI.appendChild(controlText);
-
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener('click', function () {
         map.addListener('click', function (event) {
             placeMarker(event.latLng, map);
             google.maps.event.clearListeners(map, 'click');
+            mostrarInfoWindow();
             mostrarAgregarPrecio();
         });
     });
@@ -236,14 +223,44 @@ function placeMarker(location, map) {
         url: "img/logo30x30.png",
         scaledSize: new google.maps.Size(25, 25)
     });
-//    marker.addEventListener('dragend', function (evt){
-//        mostrarAgregarPrecio();
+    marker.infowindow = new google.maps.InfoWindow();
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'latLng': location}, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            marker.infowindow.setContent('<div class="marcador"><strong>' + results[0].formatted_address + '</strong><br>');
+            marker.infowindow.open(map, marker);
+            map.controls[google.maps.ControlPosition.BOTTOM_CENTER].clear();
+            $("#pac-input").remove();
+        }
+    });
+    mostrarAgregarPrecio(marker);
+    google.maps.event.addListener(marker, 'dragend', function (evt) {
+//        marker.infowindow.close();
+        var geocoder = new google.maps.Geocoder();
+        var location = marker.position;
+        geocoder.geocode({'latLng': location}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                marker.infowindow.setContent('<div class="marcador"><strong>' + results[0].formatted_address + '</strong><br>');
+//                marker.infowindow.open(map, marker);
+            }
+        });
+        mostrarAgregarPrecio(marker);
+    });
+//    marker.addEventListner('click', function (evt) {
+//        mostrarInfoWindow();
+//        mostrarAgregarPrecio(marker);
 //    });
 //    marcadores.push(marker.latLng);
 //    console.log(marcadores[0]);
 }
 ;
 
-function mostrarAgregarPrecio(){
-    
-};
+function mostrarInfoWindow(marker) {
+
+}
+;
+
+function mostrarAgregarPrecio(marker) {
+
+}
+;
