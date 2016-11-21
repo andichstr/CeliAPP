@@ -21,7 +21,7 @@ $(document).ready(function () {
                         $("#tabla-busqueda").show();
                         $("#paginador").show();
                         $("#buscar-form").hide();
-                        $("#divVolver").html('<input type="button" value="Volver" onclick="volverBuscarNombreMarca();"/>');
+                        $("#divVolver").html('<input type="button" class="btn btn-rosa" value="Volver" onclick="volverBuscarNombreMarca();"/>');
                     };
                 } else {
                     $("#prebusqueda").html('No se encontraron resultados con esos valores');
@@ -61,7 +61,7 @@ $(document).ready(function () {
                     $("#tabla-busqueda").show();
                     $("#paginador").show();
                     $("#buscar-form").hide();
-                    $("#divVolver").html('<input type="button" value="Volver" onclick="volverBuscarNombreMarca();"/>');
+                    $("#divVolver").html('<input type="button" class="btn btn-rosa" value="Volver" onclick="volverBuscarNombreMarca();"/>');
                 } else {
                     $("#listado").html('No se encontraron resultados con esos valores');
                 };
@@ -109,7 +109,7 @@ function enviarFormulario(categoria) {
             $("#buscar-cat-form").hide();
             $("#tabla-busqueda").show();
             $("#paginador").show();
-            $("#divVolver").html('<input type="button" value="Volver" onclick="volverBuscarCategoria();"/>');
+            $("#divVolver").html('<input type="button" class="btn btn-rosa" value="Volver" onclick="volverBuscarCategoria();"/>');
         },
         failure: function (response) {
             $("#prebusqueda").addClass("bg-danger");
@@ -168,7 +168,7 @@ function tablepager() {
         // also {page:input} & {startRow:input} will add a modifiable input in place of the value
         // In v2.27.7, this can be set as a function
         // output: function(table, pager) { return 'page ' + pager.startRow + ' - ' + pager.endRow; }
-        output: '{startRow:input} a {endRow} resultados ({totalRows})',
+        output: '{startRow:input} a {endRow} productos (de {totalRows})',
         // apply disabled classname (cssDisabled option) to the pager arrows when the rows
         // are at either extreme is visible; default is true
         updateArrows: true,

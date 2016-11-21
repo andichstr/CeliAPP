@@ -44,7 +44,7 @@
         <!-- #################################################- 03.HEADER -#################################################-->
         <header>
             <!--2.1 Barra de navegacion o Navbar-->
-            <div class="container">
+            <div class="container-fluid">
                 <nav class="navbar navbar-default navbar-fixed-top formato-nabvar navcolor">
                     <div class="container-fluid">
                         <!--2.2 - Navbar Header-->          
@@ -61,7 +61,7 @@
                             <a href="index.php"><img src="img/logo1.png" alt="logo" class=""></a>
                         </div>          
                         <!--2.2.3 - Navbar Menu (opciones)-->       
-                        <div class="container" id="navbarcentrado"> 
+                        <div class="container-fluid" id="navbarcentrado"> 
                             <nav class="collapse navbar-collapse" id="navbar-1">           
                                 <ul class="nav navbar-nav"> 
                                     <!--2.2.3.1 - Opcion inicio-->                          
@@ -81,23 +81,21 @@
                                         </ul>               
                                     </li>
                                 </ul>
-                                <form id="buscar-nav" class="navbar-form navbar-right" action="busqueda_nombre_marca.php" method="POST">
-                                    <input id="prodcuto" name="producto" type="text" class="form-control hidden-xs hidden-sm hidden-md " placeholder="Buscar" required/>
-                                </form>
-                                <!--2.2.3.4 - Formulario contenedor de boton de Login-->    
                                 <form class="navbar-form navbar-right">
-                                    <div class="form-group">
-                                        <a href="#" id="login" class="btn btn-rosa"><span class="glyphicon glyphicon-user"></span> <b>Login</b></a>
+                                        <a href="#" id="login" class="btn btn-rosa"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</a>
+                                </form>
+                                <form id="buscar-nav" class="navbar-form navbar-center hidden-xs hidden-sm hidden-md" action="busqueda_nombre_marca.php" method="POST">
+                                    <div>
+                                        <input id="producto" name="producto" type="text" class="search-query form-control" placeholder="Buscar" required/>
                                     </div>
                                 </form>
+                                <!--2.2.3.4 - Formulario contenedor de boton de Login-->    
                             </nav>
                         </div>
-                        <form id="buscar-nav-oculto" class="navbar-form" action="busqueda_nombre_marca.php" method="POST">
-                            <div class="row">
-                                <div class="form-group hidden-lg">
+                        <form id="buscar-nav-oculto" class="navbar-form hidden-lg" action="busqueda_nombre_marca.php" method="POST">
+                                <div>
                                     <input type="text" id="producto-oculto" name="producto-oculto" class="form-control" placeholder="Buscar" required/>                                              
                                 </div>
-                            </div>
                         </form>
                     </div>
                 </nav>

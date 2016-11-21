@@ -61,7 +61,10 @@ $(document).ready(function () {
         FB.api('/me', function (response) {
             $('#login').after(div_session);
             $('#login').remove();
-            $('#facebook-session strong').text(response.name);
+            var name = response.name;
+            var lastIndex = name.lastIndexOf(" ");
+            name = name.substring(0, lastIndex);
+            $('#facebook-session strong').text(name);
             $('#facebook-session img').attr('src', 'http://graph.facebook.com/' + response.id + '/picture?type=large');
         });
     }

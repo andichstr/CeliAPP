@@ -23,20 +23,20 @@ function validarFormulario() {
             foreach ($result as $row) {
                 echo '<tr>';
                 echo '<td>' . $row['RNPA'] . '</td>';
-                echo '<td>' . $row['categoria'] . '</td>';
-                echo '<td>' . $row['marca'] . '</td>';
-                echo '<td>' . $row['descripcion'] . '</td>';
-                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . $row['descripcion'] . '\', \'' . $row['marca'] . '\', \'' . $row['categoria'] . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
+                echo '<td>' . urldecode($row['categoria']) . '</td>';
+                echo '<td>' . urldecode($row['marca']) . '</td>';
+                echo '<td>' . urldecode($row['descripcion']) . '</td>';
+                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . urldecode($row['descripcion']) . '\', \'' . urldecode($row['marca']) . '\', \'' . urldecode($row['categoria']) . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
                 echo '</tr>';
             }
         } else if (isset($result)) {
             if ($result != "") {
                 echo '<tr>';
                 echo '<td>' . $result['RNPA'] . '</td>';
-                echo '<td>' . $result['categoria'] . '</td>';
-                echo '<td>' . $result['marca'] . '</td>';
-                echo '<td>' . $result['descripcion'] . '</td>';
-                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . $result['descripcion'] . '\', \'' . $result['marca'] . '\', \'' . $result['categoria'] . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
+                echo '<td>' . urldecode($result['categoria']) . '</td>';
+                echo '<td>' . urldecode($result['marca']) . '</td>';
+                echo '<td>' . urldecode($result['descripcion']) . '</td>';
+                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . urldecode($result['descripcion']) . '\', \'' . urldecode($result['marca']) . '\', \'' . urldecode($result['categoria']) . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
                 echo '</tr>';
             } else {
                 echo '0';

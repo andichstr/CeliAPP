@@ -9,17 +9,18 @@ function cargarDatos() {
     var rnpa = ""
     tabla.each(function () {
         if (rnpa != this.cells[4].innerHTML.replace(/,/g, " ").replace(/"/g, " ")) {
-            data += '("' + this.cells[4].innerHTML.replace(/,/g, " ").replace(/"/g, " ") + '", "';
-            data += this.cells[0].innerHTML.replace(/,/g, " ").replace(/"/g, " ") + '", "';
-            data += this.cells[1].innerHTML.replace(/,/g, " ").replace(/"/g, " ") + '", "';
-            data += this.cells[2].innerHTML.replace(/,/g, " ").replace(/"/g, " ") + '", "';
-            data += this.cells[3].innerHTML.replace(/,/g, " ").replace(/"/g, " ") + '"), ';
+            data += '("' + encodeURIComponent(this.cells[4].innerHTML).replace(/,/g, " ").replace(/"/g, " ") + '", "';
+            data += encodeURIComponent(this.cells[0].innerHTML).replace(/,/g, " ").replace(/"/g, " ") + '", "';
+            data += encodeURIComponent(this.cells[1].innerHTML).replace(/,/g, " ").replace(/"/g, " ") + '", "';
+            data += encodeURIComponent(this.cells[2].innerHTML).replace(/,/g, " ").replace(/"/g, " ") + '", "';
+            data += encodeURIComponent(this.cells[3].innerHTML).replace(/,/g, " ").replace(/"/g, " ") + '"), ';
         }
-        rnpa = this.cells[4].innerHTML.replace(/,/g, " ").replace(/"/g, " ");
+        rnpa = encodeURIComponent(this.cells[4].innerHTML).replace(/,/g, " ").replace(/"/g, " ");
     });
 
     data = data.slice(0, -2);
-
+    
+//    data = encodeURIComponent(data);
 //    console.log(data);
 
     $.ajax({
