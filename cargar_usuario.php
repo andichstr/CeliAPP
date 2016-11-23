@@ -31,8 +31,9 @@ function cargarUsuario() {
                     echo 'El usuario no ha sido dado de alta en la base de datos, error en la ejecución de la query.';
                 }
             } else {
+                $result = $query->fetchAll();
                 echo 'El usuario ya se encuentra en la base de datos!';
-                $_SESSION['id_usuario'] = $query['id_usuario'];
+                $_SESSION['id_usuario'] = $result[0]['id_usuario'];
             }
         } else {
             echo 'Error en la primera query!';
