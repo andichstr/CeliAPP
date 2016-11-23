@@ -105,11 +105,17 @@ $(document).ready(function () {
                 FB.logout(function (response) {
                     $('#facebook-session').before(btn_login);
                     $('#facebook-session').remove();
-                })
+                    $.ajax({
+                        url: 'cerrar_sesion.php',
+                        type: 'POST',
+                        success: function(response){
+                            console.log(response);
+                        }
+                    });
+                });
             }
-        })
-
-    }
+        });
+    };
 
     /*Cuando se hace click en el control asignado a loguin llama a facebookLoguin()*/
 
