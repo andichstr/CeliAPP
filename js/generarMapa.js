@@ -185,6 +185,53 @@ function setMarkers(map, locations) {
 $(document).ready(function () {
     var tituloProducto = "<h2>" + localStorage.getItem("productoMapa") + "</h2>";
     $("#titulo").html(tituloProducto);
+    $("#pac-input").keyup(function () {
+        $("#txtUbicacion").val($("#pac-input").val());
+    });
+    $("#txtUbicacion").keyup(function () {
+        $("#pac-input").val($("#txtUbicacion").val());
+    });
+    $("#formMapa").on('submit', function (event) {
+        event.preventDefault();
+    });
+    $("#ubicacionForm").on('submit', function (event) {
+        event.preventDefault();
+        if ($("#ubicacion").val() != "" || $("#ubicacion").val() != null || $("#ubicacion").val() != undefined) {
+            var latlng = $("#ubicacion").val().split(',');
+            var latitud = latlng[0];
+            var longitud = latlng[1];
+            if ($("#precio").val() != "" || $("#precio").val() != null || $("#precio").val() != undefined) {
+                var datos = {
+                    "latitud": latitud,
+                    "longitud": longitud,
+                    "precio": $("#precio").val()
+                };
+            } else {
+                var datos = {
+                    "latitud": latitud,
+                    "longitud": longitud
+                };
+            }
+            ;
+            $.ajax({
+                data: datos,
+                url: 'persistir_ubicacion_precio.php',
+                type: 'POST',
+                success: function (response) {
+                    console.log(response);
+                    if (response == 'Si') {
+                        $("#modalTitle").html("Éxito!");
+                        $("#modalDesc").html("La ubicación fue guardada con éxito. Haga click en fuera o en el botón para salir.");
+                        $("#divModal").modal('show');
+                    }
+                }
+            });
+        } else {
+            $("#modalTitle").html("No se encuentra la ubicación.");
+            $("#modalDesc").html("Por favor, debe haber seleccionado alguna ubicación antes de cargarla.");
+            $("#divModal").modal('show');
+        }
+    });
     $(window).on('load', function () {
         if ((localStorage.getItem("rnpaMapa") == null) || (localStorage.getItem("rnpaMapa") == undefined)) {
             $("#modalTitle").html("Ups, ha ocurrido un pequeño error.");
@@ -222,51 +269,7 @@ $(document).ready(function () {
             });
         }
         ;
-        $("#pac-input").keyup(function () {
-            $("#txtUbicacion").val($("#pac-input").val());
-        });
-        $("#txtUbicacion").keyup(function () {
-            $("#pac-input").val($("#txtUbicacion").val());
-        });
-        $("#formMapa").on('submit', function (event) {
-            event.preventDefault();
-        });
-        $("#ubicacionForm").on('submit', function (event) {
-            event.preventDefault;
-            if ($("#ubicacion").val() != "" || $("#ubicacion").val() != null || $("#ubicacion").val() != undefined) {
-                var latlng = $("#ubicacion").val().split(',');
-                var latitud = latlng[0];
-                var longitud = latlng[1];
-                if ($("#precio").val() != "" || $("#precio").val() != null || $("#precio").val() != undefined) {
-                    var datos = {
-                        "latitud": latitud,
-                        "longitud": longitud,
-                        "precio": $("#precio").val()
-                    };
-                } else {
-                    var datos = {
-                        "ubicacion": $("#ubicacion").val()
-                    };
-                }
-                $.ajax({
-                    data: datos,
-                    url: 'persistir_ubicacion_precio.php',
-                    type: 'POST',
-                    success: function (response) {
-                        console.log(response);
-                        if (response == 'Si') {
-                            $("#modalTitle").html("Éxito!");
-                            $("#modalDesc").html("La ubicación fue guardada con éxito. Haga click en fuera o en el botón para salir.");
-                            $("#divModal").modal('show');
-                        }
-                    }
-                });
-            } else {
-                $("#modalTitle").html("No se encuentra la ubicación.");
-                $("#modalDesc").html("Por favor, debe haber seleccionado alguna ubicación antes de cargarla.");
-                $("#divModal").modal('show');
-            }
-        });
+
     });
 });
 function CenterControl(controlDiv, map) {
@@ -325,22 +328,23 @@ function placeMarker(location, map) {
         geocoder.geocode({'latLng': location}, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 marker.infowindow.setContent('<form class="form-inline" id="ubicacionForm"><div class="marcador"><strong>' + results[0].formatted_address + '</strong><br><div id="divPrecio" class="form-group"><label for="precio">Precio: </label><input id="precio" name="precio" type="number" style="margin-left: 10px; margin-right: 10px" placeholder="Ej: 5.50"/><input type="submit" class="btn btn-rosa" value="Agregar ubicación"/></div><input id="ubicacion" type="text" class="oculto" value="' + location + '"/></div>');
-                if (!isInfoWindowOpen(marker.infowindow)){
+                if (!isInfoWindowOpen(marker.infowindow)) {
                     marker.infowindow.open(map, marker);
                 }
             }
         });
     });
-    google.maps.event.addListener(marker, 'click', function(evt) {
-        if (isInfoWindowOpen(marker.infowindow)){
+    google.maps.event.addListener(marker, 'click', function (evt) {
+        if (isInfoWindowOpen(marker.infowindow)) {
             marker.infowindow.close();
         } else {
             marker.infowindow.open(map, marker);
         }
     });
-};
+}
+;
 
-function isInfoWindowOpen(infoWindow){
+function isInfoWindowOpen(infoWindow) {
     var map = infoWindow.getMap();
     return (map !== null && typeof map !== "undefined");
 }
