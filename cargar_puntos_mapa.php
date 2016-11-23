@@ -7,7 +7,7 @@ function cargarPuntos() {
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         if (isset($rnpa)) {
-            $query = $con->prepare("SELECT DISTINCT ub.ubicacion, ub.precio, us.nombre  FROM " . lista_ubicacion . " ub INNER JOIN " . tabla_usuario . " us ON ub.id_usuario = us.id_usuario WHERE (rnpa=:rnpa)");
+            $query = $con->prepare("SELECT DISTINCT ub.latitud, ub.longitud, ub.precio, ub.fecha, us.nombre, us.apellido  FROM " . lista_ubicacion . " ub INNER JOIN " . tabla_usuarios . " us ON ub.id_usuario = us.id_usuario WHERE (ub.RNPA=:rnpa)");
             $query->bindParam(':rnpa', $rnpa);
         }
         $query->execute();

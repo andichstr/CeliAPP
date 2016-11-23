@@ -22,7 +22,6 @@
         <script src="js/loginfacebook.js"></script>
         <script src="js/navbar.js"></script>
         <script src="js/generarMapa.js"></script>
-        <script src="js/producto.js"></script>
 
         <!-- carga  script para la conexion segun la api de facebook.-->
         <script>
@@ -82,7 +81,7 @@
                                     </li>
                                 </ul>
                                 <form class="navbar-form navbar-right">
-                                        <a href="#" id="login" class="btn btn-rosa"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</a>
+                                    <a href="#" id="login" class="btn btn-rosa"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</a>
                                 </form>
                                 <form id="buscar-nav" class="navbar-form navbar-center hidden-xs hidden-sm hidden-md" action="busqueda_nombre_marca.php" method="POST">
                                     <div>
@@ -93,9 +92,9 @@
                             </nav>
                         </div>
                         <form id="buscar-nav-oculto" class="navbar-form hidden-lg" action="busqueda_nombre_marca.php" method="POST">
-                                <div>
-                                    <input type="text" id="producto-oculto" name="producto-oculto" class="form-control" placeholder="Buscar" required/>                                              
-                                </div>
+                            <div>
+                                <input type="text" id="producto-oculto" name="producto-oculto" class="form-control" placeholder="Buscar" required/>                                              
+                            </div>
                         </form>
                     </div>
                 </nav>
@@ -106,24 +105,17 @@
         <!--        <div class="row">
         
                 </div>-->
-        <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div id="titulo">
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div id="titulo" class="centrado-footer">
             </div>
-            <label>Marca: </label> <label id="marca"></label><br>
-            <label>Categoría: </label> <label id="categoria"></label><br>
-            <form id="formMapa" action="producto.php">
-                <!-- <div class="form-group">
-                    <label for="txtUbicacion">Ubicación: (en el Mapa)</label><input type="text" class="form-control controls" id="txtUbicacion" placeholder="Ingrese la ubicación aqui"/>
-                </div> -->
-                <div id="divForm" class="form-group" style="display: none">
-                    <label for="Precio">Precio: (en el Mapa)</label> <input type="number" step="0.01" id="Precio" style="width: 80%" placeholder="Ingrese el precio"/>
-                    <input type="submit" value="Enviar"/>
-                </div>
-                <a href="./busqueda_categoria.php"><button type="button" class="btn btn-rosa">Volver</button></a>
-            </form>
         </div>
         <input id="pac-input" class="controls" type="text" placeholder="Ingrese la ubicación aquí">
-        <div id="map" class="col col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
+        <div id="map" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centrado-footer"></div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centrado-footer">
+                <a href="./busqueda_categoria.php"><button type="button" class="btn btn-rosa" style="margin-top: 10px">Volver</button></a>
+            </div>
+        </div>
         <div class="modal fade" id="divModal" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
