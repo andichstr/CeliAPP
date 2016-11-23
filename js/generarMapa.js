@@ -20,17 +20,8 @@ function initMap(coordenadas) {
     var centerControl = new CenterControl(centerControlDiv, map);
     centerControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDiv);
-    //Variables de marcado de productos
-    var locations = [
-        [-34.791, -58.523, '$5', '10/11/2016', 'Cristian Escudero'],
-        [-34.791, -58.526, '$7', '11/11/2016', 'Maximiliano Soria'],
-        [-34.791, -58.522, '$6', '12/11/2016', 'Fernando Piriz'],
-        [-34.792, -58.526, '$8', '13/11/2016', 'Andres Schuster'],
-        [-34.790, -58.525, '$10', '14/11/2016', 'Matias Medina']
-    ];
-    //llamado de funcion de marcado de productos cargados
-    setMarkers(map, locations);
-    var input = (document.getElementById('pac-input'));
+    geocoder = new google.maps.Geocoder(); // create a geocoder object
+    var input = document.getElementById('pac-input');
     var types = document.getElementById('type-selector');
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
@@ -79,7 +70,6 @@ function initMap(coordenadas) {
             var lat1 = evt.latLng.lat().toFixed(8);
             var lng1 = evt.latLng.lng().toFixed(8);
             console.log(lat1 + ',' + lng1);
-            var geocoder = new google.maps.Geocoder();
             var location = new google.maps.LatLng(lat1, lng1);
             geocoder.geocode({'latLng': location}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
@@ -87,36 +77,35 @@ function initMap(coordenadas) {
                     infowindow.open(map, marker);
                 }
             });
-        })
+        });
     });
 }
 
 function showError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
+            x.innerHTML = "User denied the request for Geolocation.";
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
+            x.innerHTML = "Location information is unavailable.";
             break;
         case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
+            x.innerHTML = "The request to get user location timed out.";
             break;
         case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
+            x.innerHTML = "An unknown error occurred.";
             break;
     }
 }
 
 function coordToAddress(lat, lng) {
-    var geocoder = new google.maps.Geocoder(); // create a geocoder object
     var location = new google.maps.LatLng(lat, lng); // turn coordinates into an object          
     geocoder.geocode({'latLng': location}, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-//            console.log(results[0].formatted_address);
+            console.log(results[0].formatted_address);
             var direccion1 = "<strong>" + results[0].formatted_address + "</strong>";
             console.log(typeof (direccion1));
-            return direccion1;
+            return results[0].formatted_address;
         }
     });
 }
@@ -125,22 +114,23 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(initMap, errorMapa);
     } else {
-        console.log("0")
+        console.log("0");
         console.log("Geolocation is not supported by this browser.");
         initMap(0);
     }
 }
 ;
 function errorMapa(error) {
-    coordenadas = 0;
+    var coordenadas = 0;
     initMap(coordenadas);
 }
 ;
 function setMarkers(map, locations) {
-    console.log(locations)
-    var marker, i
+    console.log(locations);
+    var marker, i;
     for (i = 0; i < locations.length; i++)
     {
+        console.log(coordToAddress(lat, long));
         var lat = locations[i][0];
         var long = locations[i][1];
         var precio = locations[i][2];
@@ -154,21 +144,20 @@ function setMarkers(map, locations) {
             map: map, title: nick, position: latlngset
         });
 //        var content = "Precio: " + precio + '<br>' + "Fecha: " + fecha + '<br>' + "Usuario: " + nick
-        if (precio != null){
+        if (precio != null) {
             marker.setIcon(({
-            url: "img/logo30x30.png",
-            scaledSize: new google.maps.Size(25, 25)
-        }));
+                url: "img/logo30x30.png",
+                scaledSize: new google.maps.Size(25, 25)
+            }));
             var content = "Direccion: " + coordToAddress(lat, long) + '<br>' + "Precio: " + precio + '<br>' + "Fecha: " + fecha + '<br>' + "Nick: " + nick;
         } else {
             marker.setIcon(({
-            url: "img/logo30x30byn.png",
-            scaledSize: new google.maps.Size(25, 25)
-        }));
+                url: "img/logo30x30byn.png",
+                scaledSize: new google.maps.Size(25, 25)
+            }));
             var content = "Direccion: " + coordToAddress(lat, long) + '<br>' + "Fecha: " + fecha + '<br>' + "Nick: " + nick;
         }
-        
-        var infowindow = new google.maps.InfoWindow()
+        var infowindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
             return function () {
                 infowindow.setContent(content);
@@ -188,7 +177,7 @@ $(document).ready(function () {
             $("#modalDesc").html("Por favor, haga click en el producto que desea buscar antes de ingresar a esta página");
             $("#divModal").modal('show');
             $("#divModal").on("hidden.bs.modal", function () {
-                document.location.href = "./busqueda_categoria.php"
+                document.location.href = "./busqueda_categoria.php";
             });
         } else {
             var parametros = {
@@ -215,7 +204,7 @@ $(document).ready(function () {
                     }
 
                     setMarkers(map, ubicaciones);
-                },
+                }
             });
         }
         ;
@@ -263,8 +252,7 @@ $(document).ready(function () {
                 $("#modalDesc").html("Por favor, debe haber seleccionado alguna ubicación antes de cargarla.");
                 $("#divModal").modal('show');
             }
-
-        })
+        });
     });
 });
 function CenterControl(controlDiv, map) {
@@ -312,7 +300,6 @@ function placeMarker(location, map) {
         scaledSize: new google.maps.Size(25, 25)
     });
     marker.infowindow = new google.maps.InfoWindow();
-    var geocoder = new google.maps.Geocoder();
     geocoder.geocode({'latLng': location}, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             marker.infowindow.setContent('<form class="form-inline" id="ubicacionForm"><div class="marcador"><strong>' + results[0].formatted_address + '</strong><br><div id="divPrecio" class="form-group"><label for="precio">Precio: </label><input id="precio" name="precio" type="number" style="margin-left: 10px; margin-right: 10px" placeholder="Ej: 5.50"/><input type="submit" class="btn btn-rosa" value="Agregar ubicación"/></div><input id="ubicacion" type="text" class="oculto" value="' + location + '"/></div>');
@@ -324,7 +311,6 @@ function placeMarker(location, map) {
     mostrarAgregarPrecio(marker);
     google.maps.event.addListener(marker, 'dragend', function (evt) {
 //        marker.infowindow.close();
-        var geocoder = new google.maps.Geocoder();
         var location = marker.position;
         geocoder.geocode({'latLng': location}, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
