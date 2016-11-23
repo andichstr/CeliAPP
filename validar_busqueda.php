@@ -22,11 +22,11 @@ function validarFormulario() {
         if (is_array($result) || is_object($result)) {
             foreach ($result as $row) {
                 echo '<tr>';
-                echo '<td>' . $row['RNPA'] . '</td>';
+                echo '<td>' . urldecode($row['RNPA']) . '</td>';
                 echo '<td>' . urldecode($row['categoria']) . '</td>';
                 echo '<td>' . urldecode($row['marca']) . '</td>';
                 echo '<td>' . urldecode($row['descripcion']) . '</td>';
-                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . urldecode($row['descripcion']) . '\', \'' . urldecode($row['marca']) . '\', \'' . urldecode($row['categoria']) . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
+                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . urldecode($row['RNPA']) . '\', \'' . urldecode($row['descripcion']) . '\', \'' . urldecode($row['marca']) . '\', \'' . urldecode($row['categoria']) . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
                 echo '</tr>';
             }
         } else if (isset($result)) {
@@ -36,7 +36,7 @@ function validarFormulario() {
                 echo '<td>' . urldecode($result['categoria']) . '</td>';
                 echo '<td>' . urldecode($result['marca']) . '</td>';
                 echo '<td>' . urldecode($result['descripcion']) . '</td>';
-                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . urldecode($result['descripcion']) . '\', \'' . urldecode($result['marca']) . '\', \'' . urldecode($result['categoria']) . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
+                echo '<td><button type="button" class="btn btn-rosa btn-lg" onclick="redirigirProducto(\'' . urldecode($result['RNPA']) . '\', \'' . urldecode($result['descripcion']) . '\', \'' . urldecode($result['marca']) . '\', \'' . urldecode($result['categoria']) . '\');"><span class="glyphicon glyphicon-map-marker"></span></button></td>';
                 echo '</tr>';
             } else {
                 echo '0';

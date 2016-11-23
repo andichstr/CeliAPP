@@ -5,9 +5,9 @@
  btn_loguin - variable de carga de un boton creado con bootstrap con id loguin
  div_session cuando se inicia secion se crea un div con los elementos img un strong y el boton cerrar pertenecientes a cerrar sesion y datos del usuario*/
 var app_id = '591071661081149';
-var scopes = '';
+var scopes = 'public_profile, email';
 
-var btn_login = '<a href="#" id="login" class="btn btn-rosa centrado"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</a>';
+var btn_login = '<a href="#" id="login" scopes="' + scopes + '" class="btn btn-rosa centrado"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</a>';
 
 var div_session = '<div id="facebook-session" class="centrado">' +
         '<strong style="color: white; padding-right: 10px"></strong>' +
@@ -41,8 +41,8 @@ $(document).ready(function () {
      si esta conectado llama a getFacebookData sino hace un callback*/
     var statusChangeCallback = function (response, callback) {
         console.log(response);
-
         if (response.status === 'connected') {
+            if (response.authResponse) { var access_token = FB.getAuthResponse()['accessToken']; }
             getFacebookData();
         } else {
             callback(false);
@@ -58,14 +58,31 @@ $(document).ready(function () {
     }
     /*Remueve el boron iniciar sesion y crea el div de la variable cerrar sesion - ademas toma la foto del usuario y la pone en el img con los demas datos*/
     var getFacebookData = function () {
-        FB.api('/me', function (response) {
+        var access_token = FB.getAuthResponse()['accessToken'];
+        FB.api('/me?fields=id,name,email', 'get', { access_token: access_token}, function (response) {
             $('#login').after(div_session);
             $('#login').remove();
             var name = response.name;
             var lastIndex = name.lastIndexOf(" ");
-            name = name.substring(0, lastIndex);
-            $('#facebook-session strong').text(name);
+            var onlyname = name.substring(0, lastIndex);
+            var onlysurname = name.substring(lastIndex,name.length);
+            console.log(response);
+            $('#facebook-session strong').text(onlyname);
             $('#facebook-session img').attr('src', 'http://graph.facebook.com/' + response.id + '/picture?type=large');
+            var parametros = {
+                'nombre': onlyname,
+                'apellido': onlysurname,
+                'email': response.email,
+                'token': access_token,
+            };
+            $.ajax({
+                data: parametros,
+                url: 'cargar_usuario.php',
+                type: 'POST',
+                success: function(response){
+                    console.log(response);
+                }
+            });
         });
     }
 

@@ -131,7 +131,8 @@ function volverBuscarCategoria() {
     $("#divVolver > input").remove();
 };
 
-function redirigirProducto(producto, marca, categoria) {
+function redirigirProducto(rnpa, producto, marca, categoria) {
+    localStorage.setItem("rnpaMapa", rnpa);
     localStorage.setItem("productoMapa", producto);
     localStorage.setItem("marcaMapa", marca)
     localStorage.setItem("categoriaMapa", categoria)

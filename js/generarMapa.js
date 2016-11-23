@@ -169,6 +169,34 @@ function setMarkers(map, locations) {
 }
 
 $(document).ready(function () {
+    if ((localStorage.getItem("rnpaMapa") == null) || (localStorage.getItem("rnpaMapa") == undefined)){
+        $("#modalTitle").html("Ups, ha ocurrido un pequeño error.");
+        $("#modalDesc").html("Por favor, haga click en el producto que desea buscar antes de ingresar a esta página");
+        $("#divModal").modal('show');
+        $("#divModal").on("hidden.bs.modal", function () {
+            document.location.href="./busqueda_categoria.php"
+        });
+    } else {
+        var parametros = {
+            "rnpa": localStorage.getItem("rnpaMapa")
+        };
+        $.ajax({
+            data: parametros,
+            url: 'cargar_puntos_mapa.php',
+            type: 'POST',
+            success: function (response) {
+                console.log(response);
+                var json = JSON.parse(response);
+                console.log(json);
+                var ubicaciones = [];
+                for (i=0; i<json.length; i++){
+                    ubicaciones.push(json[i]['ubicacion']);
+                    console.log(ubicaciones);
+                }
+                setMarkers(map, ubicaciones);
+            },
+        });
+    };
     $("#pac-input").keyup(function () {
         $("#txtUbicacion").val($("#pac-input").val());
     });

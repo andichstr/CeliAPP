@@ -12,6 +12,7 @@ $(document).ready(function () {
     $("#titulo").html(tituloProducto);
     $("#marca").html(marcaProducto);
     $("#categoria").html(categoriaProducto);
+    localStorage.removeItem('rnpaMapa');
     localStorage.removeItem('productoMapa');
     localStorage.removeItem('marcaMapa');
     localStorage.removeItem('categoriaMapa');
