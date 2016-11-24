@@ -40,7 +40,6 @@ $(document).ready(function () {
     /*Checkeo de informacion de logueo accion en base a la respiesta 
      si esta conectado llama a getFacebookData sino hace un callback*/
     var statusChangeCallback = function (response, callback) {
-        console.log(response);
         if (response.status === 'connected') {
             if (response.authResponse) { var access_token = FB.getAuthResponse()['accessToken']; }
             getFacebookData();
@@ -66,7 +65,6 @@ $(document).ready(function () {
             var lastIndex = name.lastIndexOf(" ");
             var onlyname = name.substring(0, lastIndex);
             var onlysurname = name.substring(lastIndex,name.length);
-            console.log(response);
             $('#facebook-session strong').text(onlyname);
             $('#facebook-session img').attr('src', 'http://graph.facebook.com/' + response.id + '/picture?type=large');
             var parametros = {

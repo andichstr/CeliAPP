@@ -15,7 +15,7 @@ function validarFormulario() {
         if (is_array($result) || is_object($result)) {
             foreach ($result as $row) {
                 echo '<tr>';
-                echo '<td>' . $row['RNPA'] . '</td>';
+                echo '<td>' . urldecode($row['RNPA']) . '</td>';
                 echo '<td>' . urldecode($row['categoria']) . '</td>';
                 echo '<td>' . urldecode($row['marca']) . '</td>';
                 echo '<td>' . urldecode($row['descripcion']) . '</td>';
@@ -24,7 +24,7 @@ function validarFormulario() {
             }
         } else if (isset($result)) {
             echo '<tr>';
-            echo '<td>' . $result['RNPA'] . '</td>';
+            echo '<td>' . urldecode($result['RNPA']) . '</td>';
             echo '<td>' . urldecode($result['categoria']) . '</td>';
             echo '<td>' . urldecode($result['marca']) . '</td>';
             echo '<td>' . urldecode($result['descripcion']) . '</td>';

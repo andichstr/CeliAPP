@@ -1,7 +1,9 @@
 html, body {
     height: 100%;
-    margin: 0;
-    padding-bottom: 55px;
+}
+
+body{
+    margin-bottom: 55px;
 }
 #map {
     height: 70%;

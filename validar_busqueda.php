@@ -32,7 +32,7 @@ function validarFormulario() {
         } else if (isset($result)) {
             if ($result != "") {
                 echo '<tr>';
-                echo '<td>' . $result['RNPA'] . '</td>';
+                echo '<td>' . urldecode($result['RNPA']) . '</td>';
                 echo '<td>' . urldecode($result['categoria']) . '</td>';
                 echo '<td>' . urldecode($result['marca']) . '</td>';
                 echo '<td>' . urldecode($result['descripcion']) . '</td>';
