@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2016 a las 19:54:41
--- Versión del servidor: 10.1.16-MariaDB
--- Versión de PHP: 5.6.24
+-- Tiempo de generación: 25-11-2016 a las 05:06:54
+-- Versión del servidor: 10.1.10-MariaDB
+-- Versión de PHP: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -9746,20 +9746,14 @@ INSERT INTO `producto` (`id_producto`, `RNPA`, `categoria`, `marca`, `nombre_fan
 --
 
 CREATE TABLE `producto_precio` (
+  `id_ubicacion_precio` int(11) NOT NULL,
   `RNPA` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `precio` int(11) DEFAULT NULL,
+  `precio` float DEFAULT NULL,
   `latitud` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `longitud` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `producto_precio`
---
-
-INSERT INTO `producto_precio` (`RNPA`, `id_usuario`, `precio`, `latitud`, `longitud`, `fecha`) VALUES
-('02-508542', 2, NULL, '-34.85001244', '-58.51460979', '2016-11-23');
 
 -- --------------------------------------------------------
 
@@ -9773,13 +9767,6 @@ CREATE TABLE `usuario` (
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `apellido` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`id_usuario`, `email`, `nombre`, `apellido`) VALUES
-(2, 'andi.schus@live.com.ar', 'Andrés', ' Schuster');
 
 --
 -- Índices para tablas volcadas
@@ -9801,7 +9788,7 @@ ALTER TABLE `producto`
 -- Indices de la tabla `producto_precio`
 --
 ALTER TABLE `producto_precio`
-  ADD PRIMARY KEY (`RNPA`,`id_usuario`),
+  ADD PRIMARY KEY (`id_ubicacion_precio`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
@@ -9824,6 +9811,11 @@ ALTER TABLE `legales`
 --
 ALTER TABLE `producto`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86701;
+--
+-- AUTO_INCREMENT de la tabla `producto_precio`
+--
+ALTER TABLE `producto_precio`
+  MODIFY `id_ubicacion_precio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
