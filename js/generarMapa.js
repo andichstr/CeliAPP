@@ -302,7 +302,7 @@ function prevenirSubmit() {
             var latlng = $("#ubicacion").val().split(',');
             var latitud = latlng[0].substring(1, latlng[0].length);
             var longitud = latlng[1].substring(0, latlng[0].length - 1);
-            if ($("#precio").val() != 0 || $("#precio").val() != null || $("#precio").val() != undefined) {
+            if ($("#precio").val() != 0 && $("#precio").val() != '0' && $("#precio").val() != null && $("#precio").val() != undefined) {
                 var datos = {
                     "latitud": latitud,
                     "longitud": longitud,

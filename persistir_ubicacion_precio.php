@@ -23,7 +23,7 @@ function cargarProd() {
             $query->bindParam(':precio', $precio);
             $query->bindParam(':fecha', $fecha);
         } else {
-            $query = $con->prepare("INSERT INTO " . lista_ubicacion . "(id_usuario, latitud, longitud, fecha) VALUES (:id_usuario, :latitud, :longitud, :fecha)");
+            $query = $con->prepare("INSERT INTO " . lista_ubicacion . "(rnpa, id_usuario, latitud, longitud, fecha) VALUES (:rnpa, :id_usuario, :latitud, :longitud, :fecha)");
             $query->bindParam(':rnpa', $rnpa);
             $query->bindParam(':id_usuario', $id_usuario);
             $query->bindParam(':latitud', $latitud);
