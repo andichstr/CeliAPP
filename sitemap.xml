@@ -4,68 +4,19 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-<!-- SITEMAP Celiapp
-    Creacion el 02/12/2016 -->
-
+ 
 <url>
-  <loc>http://www.celiapp.com.ar/</loc>
-  <changefreq>monthly</changefreq>
-  <priority>1.00</priority>
+<loc>http://www.celiapp.com.ar/</loc>
 </url>
 <url>
-  <loc>http://www.celiapp.com.ar/index.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
+<loc>http://www.celiapp.com.ar/categorias.php</loc>
+<lastmod>2017-04-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1.0</priority>
+</url> 
 <url>
-  <loc>http://www.celiapp.com.ar/busqueda_categoria.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://www.celiapp.com.ar/informacion.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://www.celiapp.com.ar/pagutiles.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://www.celiapp.com.ar/acercade.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://www.celiapp.com.ar/diagnostico.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.celiapp.com.ar/sintomatologia.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.celiapp.com.ar/consejosutiles.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.celiapp.com.ar/recomendaciones.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.celiapp.com.ar/desarrolladores.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.celiapp.com.ar/desarrollodesoftware.php</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
+<loc>http://www.celiapp.com.ar/index.php</loc>
+<changefreq>monthly</changefreq>
+<priority>1.00</priority>
 </url>
 </urlset>
